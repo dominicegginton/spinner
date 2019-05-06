@@ -9,11 +9,30 @@ public class Spinner {
     var running: Bool
     var frameIndex: Int
     var speed: Double
-    var queue: DispatchQueue = DispatchQueue(label: "io.Swift.Spinner")
+    var queue: DispatchQueue
 
-    public init() {}
+    public init(pattern: Pattern, text: String = "", speed: Double? = nil) {
+        self.pattern = pattern
+        self.text = text
+        self.speed = speed ?? pattern.defaultSpeed
 
-    public start() {}
+        self.frameIndex = 0
+        self.running = false
+        self.DispatchQueue = DispatchQueue(label: "io.Swift.Spinner")
+    }
+
+    public start() {
+        this.running = true
+        self.queue.async { [weak self] in
+
+            guard let `self` = self else { return }
+
+            while self.running {
+                //render
+                //sleep
+            }
+        }
+    }
 
     public stop() {}
 }
