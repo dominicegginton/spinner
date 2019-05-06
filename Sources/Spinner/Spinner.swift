@@ -28,8 +28,8 @@ public class Spinner {
             guard let `self` = self else { return }
 
             while self.running {
-                //render
-                //sleep
+                self.renderSpinner()
+                self.sleep(self.speed)
             }
         }
     }
