@@ -29,7 +29,7 @@ public class Spinner {
 
             while self.running {
                 self.renderSpinner()
-                self.sleep(self.speed)
+                self.sleep(seconds: self.speed)
             }
         }
     }
@@ -47,19 +47,19 @@ public class Spinner {
     }
 
     public func success(text: String? = nil) {
-        self.stop(frame: "✔", text = text)
+        self.stop(frame: "✔", text: text)
     }
 
     public func fail(text: String? = nil) {
-        self.stop(frame: "✖", text = text)
+        self.stop(frame: "✖", text: text)
     }
 
     public func warning(text: String? = nil) {
-        self.stop(frame: "⚠", text = text)
+        self.stop(frame: "⚠", text: text)
     }
 
     public func information(text: String? = nil) {
-        self.stop(frame: "ℹ", text = text)
+        self.stop(frame: "ℹ", text: text)
     }
 
     func sleep(seconds: Double) {
