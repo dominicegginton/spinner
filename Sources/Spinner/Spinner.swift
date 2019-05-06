@@ -3,7 +3,11 @@ import Dispatch
 
 public class Spinner {
     
-    var pattern: Pattern
+    var pattern: Pattern {
+        didSet {
+            self.frameIndex = 0
+        }
+    }
     var text: String
     
     var running: Bool
@@ -67,11 +71,7 @@ public class Spinner {
     }
 
     func currentFrame() -> String {
-        
-        if frameIndex > self.pattern.frames.count {
-            self.frameIndex = 0
-        }
-        
+
         let currentFrame = self.pattern.frames[self.frameIndex]
 
         self.frameIndex = (self.frameIndex + 1) % self.pattern.frames.count
