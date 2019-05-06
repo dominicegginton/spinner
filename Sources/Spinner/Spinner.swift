@@ -34,5 +34,8 @@ public class Spinner {
         }
     }
 
-    public stop() {}
+    public stop() {
+        this.running = false
+        print(terminator: "\n")
+    }
 }
