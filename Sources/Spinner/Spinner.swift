@@ -43,7 +43,16 @@ public class Spinner {
         usleep(useconds_t(seconds * 1_000_000))
     }
 
-    func currentFrame() -> String {}
+    func currentFrame() -> String {
+        let currentFrame = self.pattern.frames[self.frameIndex]
+
+        if self.frameIndex == self.pattern.frames.count - 1 {
+            self.frameIndex = 0
+        }
+        else {
+            self.frameIndex += 1
+        }
+    }
 
     func renderSpinner() {
 
