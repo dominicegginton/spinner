@@ -2,17 +2,22 @@ import Foundation
 import Dispatch
 
 public class Spinner {
-    
+
+    /// Pattern holding frames to be animated    
     var pattern: Pattern {
         didSet {
             self.frameIndex = 0
         }
     }
+    /// Text that is  displayed next to spinner
     var text: String
-    
+    /// Boolean repersenting fs the spinner is currently animating
     var running: Bool
+    /// Int repersenitng the current frame
     var frameIndex: Int
+    /// Double repsenting the wait time for frame animation
     var speed: Double
+    /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
 
     public init(pattern: Pattern, text: String = "", speed: Double? = nil) {
@@ -24,7 +29,7 @@ public class Spinner {
         self.running = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
     }
-
+    
     public func start() {
         self.running = true
         self.queue.async { [weak self] in
