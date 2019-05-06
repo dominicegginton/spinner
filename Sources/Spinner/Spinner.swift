@@ -22,7 +22,7 @@ public class Spinner {
     }
 
     public func start() {
-        this.running = true
+        self.running = true
         self.queue.async { [weak self] in
 
             guard let `self` = self else { return }
