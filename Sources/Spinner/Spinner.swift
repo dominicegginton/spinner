@@ -50,6 +50,10 @@ public class Spinner {
         self.stop(frame: "✔", text = text)
     }
 
+    public func fail(text: String? = nil) {
+        self.stop(frame: "✖", text = text)
+    }
+
     func sleep(seconds: Double) {
         usleep(useconds_t(seconds * 1_000_000))
     }
