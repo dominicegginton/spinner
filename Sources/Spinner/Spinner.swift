@@ -41,8 +41,8 @@ public class Spinner {
         if let text = text {
             self.text = text
         }
-        self.renderSpinner()
         self.running = false
+        self.renderSpinner()
         print(terminator: terminator)
     }
 
