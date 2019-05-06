@@ -18,7 +18,7 @@ public class Spinner {
 
         self.frameIndex = 0
         self.running = false
-        self.DispatchQueue = DispatchQueue(label: "io.Swift.Spinner")
+        self.queue = DispatchQueue(label: "io.Swift.Spinner")
     }
 
     public func start() {
