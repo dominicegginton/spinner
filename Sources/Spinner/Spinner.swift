@@ -46,6 +46,10 @@ public class Spinner {
         print(terminator: terminator)
     }
 
+    public func success(text: String? = nil) {
+        self.stop(frame: "✔", text = text)
+    }
+
     func sleep(seconds: Double) {
         usleep(useconds_t(seconds * 1_000_000))
     }
