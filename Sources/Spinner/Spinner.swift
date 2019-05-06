@@ -38,4 +38,17 @@ public class Spinner {
         this.running = false
         print(terminator: "\n")
     }
+
+    func currentFrame() -> String {}
+
+    func renderSpinner() {
+
+        // Reset cursor to start of line
+        print("\r", terminator: "")
+        // Print the spinner frame and text
+        print("\(self.currentFrame()) \(self.text)", terminator: "")
+        // Flush STDOUT
+        fflush(stdout)
+
+    }
 }
