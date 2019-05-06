@@ -21,7 +21,7 @@ public class Spinner {
         self.DispatchQueue = DispatchQueue(label: "io.Swift.Spinner")
     }
 
-    public start() {
+    public func start() {
         this.running = true
         self.queue.async { [weak self] in
 
@@ -34,7 +34,7 @@ public class Spinner {
         }
     }
 
-    public stop() {
+    public func stop() {
         this.running = false
         print(terminator: "\n")
     }
