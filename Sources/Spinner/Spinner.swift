@@ -55,7 +55,11 @@ public class Spinner {
     }
 
     public func warning(text: String? = nil) {
-        self.stop(frame: "✖", text = text)
+        self.stop(frame: "⚠", text = text)
+    }
+
+    public func information(text: String? = nil) {
+        self.stop(frame: "ℹ", text = text)
     }
 
     func sleep(seconds: Double) {
