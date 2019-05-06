@@ -39,6 +39,10 @@ public class Spinner {
         print(terminator: "\n")
     }
 
+    func sleep(seconds: Double) {
+        usleep(useconds_t(seconds * 1_000_000))
+    }
+
     func currentFrame() -> String {}
 
     func renderSpinner() {
