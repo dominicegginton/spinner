@@ -36,7 +36,7 @@ public class Spinner {
 
     public func stop(frame: String? = nil, text: String? = nil, terminator: String = "\n") {
         if let frame = frame {
-            // update pattern with singal frame
+            self.pattern = Pattern(singleFrame: frame)
         }
         if let text = text {
             self.text = text
