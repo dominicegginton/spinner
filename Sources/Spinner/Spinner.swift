@@ -34,9 +34,16 @@ public class Spinner {
         }
     }
 
-    public func stop() {
-        this.running = false
-        print(terminator: "\n")
+    public func stop(frame: String? = nil, text: String? = nil, terminator: String = "\n") {
+        if let frame = frame {
+            // update pattern with singal frame
+        }
+        if let text = text {
+            self.text = text
+        }
+        self.renderSpinner()
+        self.running = false
+        print(terminator: terminator)
     }
 
     func sleep(seconds: Double) {
