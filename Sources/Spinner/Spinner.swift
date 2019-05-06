@@ -75,6 +75,8 @@ public class Spinner {
         else {
             self.frameIndex += 1
         }
+
+        return currentFrame
     }
 
     func renderSpinner() {
