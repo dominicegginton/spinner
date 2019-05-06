@@ -76,6 +76,8 @@ public class Spinner {
             self.frameIndex += 1
         }
 
+        self.frameIndex = (self.frameIndex + 1) % self.pattern.frames.count
+
         return currentFrame
     }
 
