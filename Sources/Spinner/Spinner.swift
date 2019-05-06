@@ -67,8 +67,13 @@ public class Spinner {
     }
 
     func currentFrame() -> String {
-        let currentFrame = self.pattern.frames[self.frameIndex]
         
+        if frameIndex > self.pattern.frames.count {
+            self.frameIndex = 0
+        }
+        
+        let currentFrame = self.pattern.frames[self.frameIndex]
+
         self.frameIndex = (self.frameIndex + 1) % self.pattern.frames.count
 
         return currentFrame
