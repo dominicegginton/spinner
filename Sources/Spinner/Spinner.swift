@@ -45,10 +45,11 @@ public class Spinner {
     }
 
     public func stop(_ completionType: CompletionType, text: String? = nil, terminator: String = "\n") {
-        self.pattern = completionType.pattern
-        if let text = text {
+        if var text = text {
+            text += Array(repeating: " ", count: self.getPatternPadding(completionType.pattern))
             setText(text)
         }
+        self.pattern = completionType.pattern
         self.running = false
         self.renderSpinner()
         print(terminator: terminator)
@@ -74,6 +75,20 @@ public class Spinner {
             self.text += Array(repeating: " ", count: textLengthDifferance)
         } else {
             self.text = newString
+        }
+    }
+
+    func getPatternPadding(_ newPattern: Pattern) -> Int {
+        
+        let newPatternFrameWidth: Int = Rainbow.extractModes(for: newPattern.frames[0]).text.count
+        let oldPatternFrameWidth: Int = Rainbow.extractModes(for: self.pattern.frames[0]).text.count
+
+        let patternFrameWidthDifferance: Int = oldPatternFrameWidth - newPatternFrameWidth
+
+        if patternFrameWidthDifferance > 0 {
+            return patternFrameWidthDifferance
+        }else {
+            return 0
         }
     }
 
