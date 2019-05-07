@@ -45,7 +45,7 @@ public class Spinner {
     }
 
     public func stop(_ completionType: CompletionType, text: String? = nil, terminator: String = "\n") {
-        if var text = text {
+        if let text = text {
             setText(text)
         }
         self.text += Array(repeating: " ", count: self.getPatternPadding(completionType.pattern))
