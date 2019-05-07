@@ -54,6 +54,10 @@ public class Spinner {
         print(terminator: terminator)
     }
 
+    public func stopAndClear() {
+        self.stop(completionHandler: CompletionHandler(pattern: Pattern(singleFrame: "")), text: "")
+    }
+
     func sleep(seconds: Double) {
         usleep(useconds_t(seconds * 1_000_000))
     }
