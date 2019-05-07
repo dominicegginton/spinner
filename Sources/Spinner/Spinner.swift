@@ -62,6 +62,10 @@ public class Spinner {
         self.stop(CompletionType(emptyPattern), text: "")
     }
 
+    public func updateText(_ newText: String) {
+        self.setText(newText)
+    }
+
     func setText(_ newString: String) {
 
         let newText = Rainbow.extractModes(for: newString)
