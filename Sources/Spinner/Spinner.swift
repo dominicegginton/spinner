@@ -31,6 +31,9 @@ public class Spinner {
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
     }
 
+    /**
+    Starts the animation for the spinner.
+    */
     public func start() {
         self.hideCursor()
         self.running = true
@@ -45,6 +48,9 @@ public class Spinner {
         }
     }
 
+    /**
+    Stops the animation for the spinner.
+    */
     public func stop(_ completionType: CompletionType, text: String? = nil, terminator: String = "\n") {
         if let text = text {
             setText(text)
@@ -57,10 +63,16 @@ public class Spinner {
         print(terminator: terminator)
     }
 
+    /**
+    Stops the animation for the spinner.
+    */
     public func stopAndClear() {
         self.stop(CompletionType(""), text: "")
     }
 
+    /**
+    Updates the text dispalyed next to the spinner
+    */
     public func updateText(_ newText: String) {
         self.setText(newText)
     }
