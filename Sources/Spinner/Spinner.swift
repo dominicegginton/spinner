@@ -44,7 +44,7 @@ public class Spinner {
         }
     }
 
-    public func stop(completionHandler: CompletionHandler, text: String? = nil) {
+    public func stop(completionHandler: CompletionHandler, text: String? = nil, terminator: String = "\n") {
         self.pattern = completionHandler.pattern
         if let text = text {
             self.text = text
