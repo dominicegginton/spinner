@@ -44,8 +44,8 @@ public class Spinner {
         }
     }
 
-    public func stop(completionHandler: CompletionHandler, text: String? = nil, terminator: String = "\n") {
-        self.pattern = completionHandler.pattern
+    public func stop(_ completionType: CompletionType, text: String? = nil, terminator: String = "\n") {
+        self.pattern = completionType.pattern
         if let text = text {
             self.text = text
         }
@@ -55,7 +55,7 @@ public class Spinner {
     }
 
     public func stopAndClear() {
-        self.stop(completionHandler: CompletionHandler(pattern: Pattern(singleFrame: "")), text: "")
+        self.stop(CompletionType(pattern: Pattern(singleFrame: "")), text: "")
     }
 
     func sleep(seconds: Double) {
