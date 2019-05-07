@@ -55,11 +55,7 @@ public class Spinner {
     }
 
     public func stopAndClear() {
-
-        // Create empty pattern
-        let emptyPattern = Pattern(singleFrame: "")
-        // Pass custom completion type with empty pattern and empty text to stop function
-        self.stop(CompletionType(emptyPattern), text: "")
+        self.stop(CompletionType(""), text: "")
     }
 
     public func updateText(_ newText: String) {
