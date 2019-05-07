@@ -54,34 +54,6 @@ public class Spinner {
         print(terminator: terminator)
     }
 
-    public func stop(frame: String? = nil, text: String? = nil, terminator: String = "\n") {
-        if let frame = frame {
-            self.pattern = Pattern(singleFrame: frame)
-        }
-        if let text = text {
-            self.text = text
-        }
-        self.running = false
-        self.renderSpinner()
-        print(terminator: terminator)
-    }
-
-    public func success(text: String? = nil) {
-        self.stop(frame: "✔".green, text: text)
-    }
-
-    public func fail(text: String? = nil) {
-        self.stop(frame: "✖".red, text: text)
-    }
-
-    public func warning(text: String? = nil) {
-        self.stop(frame: "⚠".yellow, text: text)
-    }
-
-    public func information(text: String? = nil) {
-        self.stop(frame: "ℹ".blue, text: text)
-    }
-
     func sleep(seconds: Double) {
         usleep(useconds_t(seconds * 1_000_000))
     }
