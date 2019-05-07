@@ -32,6 +32,7 @@ public class Spinner {
     }
 
     public func start() {
+        self.hideCursor()
         self.running = true
         self.queue.async { [weak self] in
 
@@ -51,6 +52,7 @@ public class Spinner {
         self.text += Array(repeating: " ", count: self.getPatternPadding(completionType.pattern))
         self.pattern = completionType.pattern
         self.running = false
+        self.unhideCursor()
         self.renderSpinner()
         print(terminator: terminator)
     }
@@ -115,4 +117,15 @@ public class Spinner {
         fflush(stdout)
 
     }
+
+    func hideCursor() {
+        print("\u{001B}[?25l")
+        fflush(stdout)
+    }
+    
+    func unhideCursor() {
+        print("\u{001B}[?25h")
+        fflush(stdout)
+    }
+
 }
