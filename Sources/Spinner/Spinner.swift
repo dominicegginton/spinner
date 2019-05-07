@@ -47,7 +47,7 @@ public class Spinner {
     public func stop(_ completionType: CompletionType, text: String? = nil, terminator: String = "\n") {
         self.pattern = completionType.pattern
         if let text = text {
-            self.text = text
+            setText(text)
         }
         self.running = false
         self.renderSpinner()
