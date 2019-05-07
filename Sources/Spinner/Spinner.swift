@@ -44,10 +44,8 @@ public class Spinner {
         }
     }
 
-    public func stop(frame: String? = nil, text: String? = nil, terminator: String = "\n") {
-        if let frame = frame {
-            self.pattern = Pattern(singleFrame: frame)
-        }
+    public func stop(_ completionType: CompletionType, text: String? = nil, terminator: String = "\n") {
+        self.pattern = completionType.pattern
         if let text = text {
             self.text = text
         }
@@ -56,20 +54,12 @@ public class Spinner {
         print(terminator: terminator)
     }
 
-    public func success(text: String? = nil) {
-        self.stop(frame: "✔".green, text: text)
-    }
+    public func stopAndClear() {
 
-    public func fail(text: String? = nil) {
-        self.stop(frame: "✖".red, text: text)
-    }
-
-    public func warning(text: String? = nil) {
-        self.stop(frame: "⚠".yellow, text: text)
-    }
-
-    public func information(text: String? = nil) {
-        self.stop(frame: "ℹ".blue, text: text)
+        // Create empty pattern
+        let emptyPattern = Pattern(singleFrame: "")
+        // Pass custom completion type with empty pattern and empty text to stop function
+        self.stop(CompletionType(emptyPattern), text: "")
     }
 
     func sleep(seconds: Double) {
