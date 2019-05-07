@@ -97,7 +97,7 @@ public class Spinner {
     }
 }
 
-public enum completionHandler {
+public enum CompletionHandler {
     
     case success
     case failure
