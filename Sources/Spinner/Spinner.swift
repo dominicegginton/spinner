@@ -57,19 +57,19 @@ public class Spinner {
     }
 
     public func success(text: String? = nil) {
-        self.stop(frame: "✔", text: text)
+        self.stop(frame: "✔".green, text: text)
     }
 
     public func fail(text: String? = nil) {
-        self.stop(frame: "✖", text: text)
+        self.stop(frame: "✖".red, text: text)
     }
 
     public func warning(text: String? = nil) {
-        self.stop(frame: "⚠", text: text)
+        self.stop(frame: "⚠".yellow, text: text)
     }
 
     public func information(text: String? = nil) {
-        self.stop(frame: "ℹ", text: text)
+        self.stop(frame: "ℹ".blue, text: text)
     }
 
     func sleep(seconds: Double) {
