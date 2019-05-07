@@ -44,6 +44,16 @@ public class Spinner {
         }
     }
 
+    public func stop(completionHandler: CompletionHandler, text: String? = nil) {
+        self.pattern = completionHandler.pattern
+        if let text = text {
+            self.text = text
+        }
+        self.running = false
+        self.renderSpinner()
+        print(terminator: terminator)
+    }
+
     public func stop(frame: String? = nil, text: String? = nil, terminator: String = "\n") {
         if let frame = frame {
             self.pattern = Pattern(singleFrame: frame)
