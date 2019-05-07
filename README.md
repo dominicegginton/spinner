@@ -2,13 +2,19 @@
 
 TODO: project test pass/fail icons 
 
-Taking [inspiration](## Community) from others in the GitHub community, Spinner aims to fix core issues and expand on functionality, giving developers a stable, fast and easy way of creating spinning animations for there CLI applications.
+> Terminal Spinner library for use within your amazing Swift projects
 
-TODO: gif image
+<p align="center">
+	<br>
+	<img src="Assets/demo.gif">
+	<br>
+	<br>
+</p>
 
 ## Install 
 
-When developing with swift for cross platforms applications you will want to use the [**Swift Package Manger**](https://swift.org/package-manager/). Just add the github url of this repo to your `Package.swift` file to create a depenacy. 
+[**Swift Package Manger**](https://swift.org/package-manager/).
+
 ``` swift
 // swift-tools-version:4
 
@@ -21,7 +27,7 @@ let package = Package(
     ]
 )
 ```
-Running `swift build` will install and complie everything for you 💪
+Running `swift build` will install and compile everything for you 💪
 
 ## Usage
 To create a simple spinner for a couple of seconds it is easy with `Spinner()` class. 
@@ -68,15 +74,8 @@ var mySpinner = Spinner(myCustomPattern, "My Custom Spinner")
 mySpinner.start()
 ```
 
-## Contributing
-
-TODO:
-- issues
-- pull requests
-
 ## Community
 
-TODO:
-- dependacy 
-- inspriation
-- Used by
+Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo build in JavaScript.
+
+Another huge thanks to [kiliankoe](https://github.com/kiliankoe/CLISpinner) for the inspiration to create a more stable and feature rich Swift Spinner.
