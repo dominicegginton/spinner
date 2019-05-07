@@ -23,7 +23,7 @@ import PackageDescription
 let package = Package(
     name: "YourAmazingSoftware",
     dependencies: [
-        package(url: "https://github.com/dominicegginton/Spinner", from: "0.1.0")
+        package(url: "https://github.com/dominicegginton/Spinner", from: "1.0.0")
     ]
 )
 ```
