@@ -87,6 +87,10 @@ public enum CompletionHandler {
     case information
     case custom(Pattern)
 
+    public init(pattern: Pattern) {
+        self = .custom(pattern)
+    }
+
     public var pattern: Pattern {
         switch self {
             case .success: return Pattern(singleFrame: "✔".green)
