@@ -55,7 +55,11 @@ public class Spinner {
     }
 
     public func stopAndClear() {
-        self.stop(CompletionType(pattern: Pattern(singleFrame: "")), text: "")
+
+        // Create empty pattern
+        let emptyPattern = Pattern(singleFrame: "")
+        // Pass custom completion type with empty pattern and empty text to stop function
+        self.stop(CompletionType(emptyPattern), text: "")
     }
 
     func sleep(seconds: Double) {
