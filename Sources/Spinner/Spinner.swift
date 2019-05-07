@@ -62,6 +62,21 @@ public class Spinner {
         self.stop(CompletionType(emptyPattern), text: "")
     }
 
+    func setText(_ newString: String) {
+
+        let newText = Rainbow.extractModes(for: newString)
+        let oldText = Rainbow.extractModes(for: self.text)
+
+        let textLengthDifferance: Int = oldText.text.count - newText.text.count
+        
+        if textLengthDifferance > 0 {
+            self.text = newString
+            self.text += Array(repeating: " ", count: textLengthDifferance)
+        } else {
+            self.text = newString
+        }
+    }
+
     func sleep(seconds: Double) {
         usleep(useconds_t(seconds * 1_000_000))
     }
