@@ -119,12 +119,12 @@ public class Spinner {
     }
 
     func hideCursor() {
-        print("\u{001B}[?25l")
+        print("\u{001B}[?25l", terminator: "")
         fflush(stdout)
     }
     
     func unhideCursor() {
-        print("\u{001B}[?25h")
+        print("\u{001B}[?25h", terminator: "")
         fflush(stdout)
     }
 
