@@ -7,7 +7,7 @@ public enum CompletionType {
     case custom(Pattern)
 
     public init(_ customPattern: Pattern) {
-        self = .custom(pattern)
+        self = .custom(customPattern)
     }
 
     public var pattern: Pattern {
