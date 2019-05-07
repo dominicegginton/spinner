@@ -1,5 +1,6 @@
 import Foundation
 import Dispatch
+import Rainbow
 
 public class Spinner {
 
@@ -29,7 +30,7 @@ public class Spinner {
         self.running = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
     }
-    
+
     public func start() {
         self.running = true
         self.queue.async { [weak self] in
