@@ -21,7 +21,7 @@ public class Spinner {
     /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
 
-    public init(pattern: Pattern, text: String = "", speed: Double? = nil) {
+    public init(_ pattern: Pattern, _ text: String = "", speed: Double? = nil) {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
