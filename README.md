@@ -1,6 +1,6 @@
 # Swift CLI Spinners
 
-TODO: project test pass/fail icons 
+[![Build Status](https://travis-ci.com/dominicegginton/Spinner.svg?branch=master)](https://travis-ci.com/dominicegginton/Spinner)
 
 > Terminal Spinner library for use within your amazing Swift projects
 
