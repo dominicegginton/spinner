@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/dominicegginton/Spinner.svg?branch=master)](https://travis-ci.com/dominicegginton/Spinner)
 
-> Terminal Spinner library for use within your amazing Swift projects
+> Terminal Spinner library for use within your amazing Swift projects. Discover over 60 unique spinner animations, along with the ability to easily create frame by frame animated spinners yourself.
 
 <p align="center">
 	<br>
@@ -10,6 +10,14 @@
 	<br>
 	<br>
 </p>
+
+
+## Key Features
+
+- Over **60** animated spinners for use within your Swift project
+- Easily create custom spinners with single and multiple frames
+- Completion types allow for easily displaying of critical functions (success, failure, warning, information)
+- Create your own completion types with custom frames
 
 ## Install 
 
