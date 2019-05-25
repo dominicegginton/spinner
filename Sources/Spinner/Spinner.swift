@@ -5,7 +5,7 @@ import Rainbow
 public final class Spinner {
 
     /// Pattern holding frames to be animated    
-    var pattern: Pattern {
+    var pattern: SpinnerPatter {
         didSet {
             self.frameIndex = 0
         }
@@ -21,7 +21,7 @@ public final class Spinner {
     /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
 
-    public init(_ pattern: Pattern, _ text: String = "", speed: Double? = nil) {
+    public init(_ pattern: SpinnerPatter, _ text: String = "", speed: Double? = nil) {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
@@ -103,7 +103,7 @@ public final class Spinner {
         }
     }
 
-    func getPatternPadding(_ newPattern: Pattern) -> Int {
+    func getPatternPadding(_ newPattern: SpinnerPatter) -> Int {
         
         let newPatternFrameWidth: Int = Rainbow.extractModes(for: newPattern.frames[0]).text.count
         let oldPatternFrameWidth: Int = Rainbow.extractModes(for: self.pattern.frames[0]).text.count
