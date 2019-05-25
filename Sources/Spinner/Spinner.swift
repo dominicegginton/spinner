@@ -2,7 +2,7 @@ import Foundation
 import Dispatch
 import Rainbow
 
-public class Spinner {
+public final class Spinner {
 
     /// Pattern holding frames to be animated    
     var pattern: Pattern {
