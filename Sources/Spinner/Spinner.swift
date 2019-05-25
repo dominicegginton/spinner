@@ -5,7 +5,7 @@ import Rainbow
 public final class Spinner {
 
     /// Pattern holding frames to be animated    
-    var pattern: SpinnerPatter {
+    var pattern: SpinnerPattern {
         didSet {
             self.frameIndex = 0
         }
