@@ -71,6 +71,13 @@ public final class Spinner {
     }
 
     /**
+    Updates the pattern dispalyed by the spinner
+    */
+    public func updatePattern(_ newPattern: SpinnerPatter) {
+        self.setPattern = newPattern
+    }
+
+    /**
     Updates the text dispalyed next to the spinner
     */
     public func updateText(_ newText: String) {
@@ -83,6 +90,12 @@ public final class Spinner {
     public func updateSpeed(_ newSpeed: Double) {
         self.setSpeed(newSpeed)
     } 
+
+
+    func setPattern(_ newPattern: SpinnerPatter) {
+        self.text += Array(repeating: " ", count: self.getPatternPadding(completionType.pattern))
+        self.pattern = newPattern
+    }
 
     func setSpeed(_ newSpeed: Double) {
         self.speed = newSpeed
