@@ -77,6 +77,17 @@ public final class Spinner {
         self.setText(newText)
     }
 
+    /**
+    Updates the speed of the spinner
+    */
+    public func updateSpeed(_ newSpeed: Double) {
+        self.setSpeed(newSpeed)
+    } 
+
+    func setSpeed(_ newSpeed: Double) {
+        self.speed = newSpeed
+    }
+
     func setText(_ newString: String) {
 
         let newText = Rainbow.extractModes(for: newString)
