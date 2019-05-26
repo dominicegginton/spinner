@@ -75,7 +75,7 @@ public final class Spinner {
     Updates the pattern dispalyed by the spinner
     */
     public func updatePattern(_ newPattern: SpinnerPattern) {
-        self.setPattern = newPattern
+        self.setPattern(newPattern)
     }
 
     /**
