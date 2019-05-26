@@ -90,6 +90,10 @@ public final class Spinner {
         self.setSpeed(newSpeed)
     } 
 
+
+    public func updateColor(_ newColor: Color) {
+        self.color = newColor
+    }
     /**
     Stops the spinner and displays a green ✔ witht the provied text
 
@@ -142,6 +146,10 @@ public final class Spinner {
         self.unhideCursor()
         self.renderSpinner()
         print(terminator: terminator)
+    }
+
+    func setColor(_ newColor: Color) {
+        self.color = newColor
     }
 
     func setPattern(_ newPattern: SpinnerPattern) {
