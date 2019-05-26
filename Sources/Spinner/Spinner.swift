@@ -92,7 +92,7 @@ public final class Spinner {
 
 
     public func updateColor(_ newColor: Color) {
-        self.color = newColor
+        self.setColor(newColor)
     }
     /**
     Stops the spinner and displays a green ✔ witht the provied text
