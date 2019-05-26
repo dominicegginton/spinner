@@ -63,7 +63,7 @@ public final class Spinner {
     Clears the spinner from the terminal and returns the curser to the start of the spinner
     */
     public func clear() {
-        self.stopSpinner(finalFrame: "", text: "", terminator: "")
+        self.stopSpinner(finalFrame: "", text: "", terminator: "\r")
     }
 
     /**
