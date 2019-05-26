@@ -125,7 +125,25 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func information(_ text: String? = nil) {
-        self.stop(completionFrame: "ℹ".blue, text: text)
+        self.stopSpinner(finalFrame: "ℹ".blue, text: text)
+    }
+
+    func stopSpinner(finalFrame: String? = nil, text: String? = nil, terminator: String = "\n") {
+        if let text = text {
+            setText(text)
+        }
+        var finalPattern: SpinnerPattern?
+        if let frame = finalFrame {
+            finalPattern = SpinnerPattern(singleFrame: frame)
+        }
+        if let pattern = finalPattern {
+            self.text += Array(repeating: " ", count: self.getPatternPadding(pattern))
+            self.pattern = pattern
+        }
+        self.running = false
+        self.unhideCursor()
+        self.renderSpinner()
+        print(terminator: terminator)
     }
 
     func setPattern(_ newPattern: SpinnerPattern) {
