@@ -94,7 +94,7 @@ public final class Spinner {
 
 
     func setPattern(_ newPattern: SpinnerPattern) {
-        self.text += Array(repeating: " ", count: self.getPatternPadding(completionType.pattern))
+        self.text += Array(repeating: " ", count: self.getPatternPadding(newPattern))
         self.pattern = newPattern
     }
 
