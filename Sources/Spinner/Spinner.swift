@@ -20,11 +20,14 @@ public final class Spinner {
     var speed: Double
     /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
+    /// Color of the spinner
+    var color: Color
 
-    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil) {
+    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .white) {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
+        self.color = color
 
         self.frameIndex = 0
         self.running = false
@@ -185,7 +188,7 @@ public final class Spinner {
 
     func currentFrame() -> String {
 
-        let currentFrame = self.pattern.frames[self.frameIndex]
+        let currentFrame = self.pattern.frames[self.frameIndex].applyingCodes(self.color)
 
         self.frameIndex = (self.frameIndex + 1) % self.pattern.frames.count
 
