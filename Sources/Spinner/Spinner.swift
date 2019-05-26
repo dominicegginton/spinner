@@ -55,9 +55,9 @@ public final class Spinner {
         if let text = text {
             setText(text)
         }
-        let finalPattern: SpinnerPattern = SpinnerPatter(stillFrame: completionFrame)
+        let finalPattern: SpinnerPattern = SpinnerPattern(stillFrame: completionFrame)
         self.text += Array(repeating: " ", count: self.getPatternPadding(finalPattern))
-        self.pattern = completionType.pattern
+        self.pattern = finalPattern
         self.running = false
         self.unhideCursor()
         self.renderSpinner()
@@ -68,7 +68,7 @@ public final class Spinner {
     Stops the animation for the spinner.
     */
     public func stopAndClear() {
-        self.stop(completionFrame"", text: "")
+        self.stop(completionFrame: "", text: "")
     }
 
     /**
