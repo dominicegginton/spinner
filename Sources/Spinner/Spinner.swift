@@ -50,18 +50,13 @@ public final class Spinner {
 
     /**
     Stops the animation for the spinner.
+
+    - Parameter finalFrame: The persistant frame that will be dispalyed on the compleed spinner, defult is 'nil' this will keep the current frame the spinner is on
+    - Parameter text: The persistant text that will be dispalyed on the compleed spinner, defult is 'nil' this will keep the current text the spinner has
+    - Parameter terminator: The terminator used for ending writing a line to the terminal, defult is '\n' this will return the curser to a new line
     */
-    public func stop(completionFrame: String, text: String? = nil, terminator: String = "\n") {
-        if let text = text {
-            setText(text)
-        }
-        let finalPattern: SpinnerPattern = SpinnerPattern(singleFrame: completionFrame)
-        self.text += Array(repeating: " ", count: self.getPatternPadding(finalPattern))
-        self.pattern = finalPattern
-        self.running = false
-        self.unhideCursor()
-        self.renderSpinner()
-        print(terminator: terminator)
+    public func stop(finalFrame: String? = nil, text: String? = nil, terminator: String = "\n") {
+        self.stopSpinner(finalFrame: finalFrame, text: text, terminator: terminator)
     }
 
     /**
