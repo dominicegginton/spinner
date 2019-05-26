@@ -92,6 +92,41 @@ public final class Spinner {
         self.setSpeed(newSpeed)
     } 
 
+    /**
+    Stops the spinner and displays a green ✔ witht the provied text
+
+   - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    */
+    public func succeed(_ text: String? = nil) {
+        self.stop(completionFrame: "✔".green, text: text)
+    }
+
+    /**
+    Stops the spinner and displays a red ✖ witht the provied text
+
+    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    */
+    public func failure(_ text: String? = nil) {
+        self.stop(completionFrame: "✖".red, text: text)
+    }
+
+    /**
+    Stops the spinner and displays a yellow ⚠ witht the provied text
+
+    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    */
+    public func warning(_ text: String? = nil) {
+        self.stop(completionFrame: "⚠".yellow, text: text)
+    }
+
+    /**
+    Stops the spinner and displays a blue ℹ witht the provied text
+
+    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    */
+    public func information(_ text: String? = nil) {
+        self.stop(completionFrame: "ℹ".blue, text: text)
+    }
 
     func setPattern(_ newPattern: SpinnerPattern) {
         self.text += Array(repeating: " ", count: self.getPatternPadding(newPattern))
