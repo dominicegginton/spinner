@@ -68,7 +68,7 @@ public final class Spinner {
     Stops the animation for the spinner.
     */
     public func stopAndClear() {
-        self.stop(CompletionType(""), text: "")
+        self.stop("", text: "")
     }
 
     /**
