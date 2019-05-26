@@ -98,7 +98,7 @@ public final class Spinner {
    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func succeed(_ text: String? = nil) {
-        self.stop(completionFrame: "✔".green, text: text)
+        self.stopSpinner(finalFrame: "✔".green, text: text)
     }
 
     /**
@@ -107,7 +107,7 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func failure(_ text: String? = nil) {
-        self.stop(completionFrame: "✖".red, text: text)
+        self.stopSpinner(finalFrame: "✖".red, text: text)
     }
 
     /**
@@ -116,7 +116,7 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func warning(_ text: String? = nil) {
-        self.stop(completionFrame: "⚠".yellow, text: text)
+        self.stopSpinner(finalFrame: "⚠".yellow, text: text)
     }
 
     /**
