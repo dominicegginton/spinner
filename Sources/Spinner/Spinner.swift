@@ -55,7 +55,7 @@ public final class Spinner {
         if let text = text {
             setText(text)
         }
-        let finalPattern: SpinnerPattern = SpinnerPattern(stillFrame: completionFrame)
+        let finalPattern: SpinnerPattern = SpinnerPattern(singleFrame: completionFrame)
         self.text += Array(repeating: " ", count: self.getPatternPadding(finalPattern))
         self.pattern = finalPattern
         self.running = false

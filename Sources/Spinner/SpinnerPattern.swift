@@ -63,11 +63,11 @@ public enum SpinnerPattern {
     case runner
     case pong
     case shark
-    case singleFrame(String, Double)
-    case multiFrame([String], Double)
+    case singleFrame(String)
+    case multiFrame([String])
 
     public init(singleFrame: String) {
-        self = .singleFrame(single)
+        self = .singleFrame(singleFrame)
     }
 
     public init(multiFrame: [String]) {
