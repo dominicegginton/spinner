@@ -66,12 +66,12 @@ public enum SpinnerPattern {
     case singleFrame(String, Double)
     case multiFrame([String], Double)
 
-    public init(single: String, speed: Double) {
-        self = .singleFrame(single, speed)
+    public init(singleFrame: String) {
+        self = .singleFrame(single)
     }
 
-    public init(multiFrame: [String], speed: Double) {
-        self = .multiFrame(multiFrame, speed)
+    public init(multiFrame: [String]) {
+        self = .multiFrame(multiFrame)
     } 
 
     public var frames: [String] {
@@ -139,7 +139,8 @@ public enum SpinnerPattern {
             case .runner: return ["🚶 ","🏃 "]
             case .pong: return ["▐⠂       ▌","▐⠈       ▌","▐ ⠂      ▌","▐ ⠠      ▌","▐  ⡀     ▌","▐  ⠠     ▌","▐   ⠂    ▌","▐   ⠈    ▌","▐    ⠂   ▌","▐    ⠠   ▌","▐     ⡀  ▌","▐     ⠠  ▌","▐      ⠂ ▌","▐      ⠈ ▌","▐       ⠂▌","▐       ⠠▌","▐       ⡀▌","▐      ⠠ ▌","▐      ⠂ ▌","▐     ⠈  ▌","▐     ⠂  ▌","▐    ⠠   ▌","▐    ⡀   ▌","▐   ⠠    ▌","▐   ⠂    ▌","▐  ⠈     ▌","▐  ⠂     ▌","▐ ⠠      ▌","▐ ⡀      ▌","▐⠠       ▌"]
             case .shark: return ["▐|\\____________▌","▐_|\\___________▌","▐__|\\__________▌","▐___|\\_________▌","▐____|\\________▌","▐_____|\\_______▌","▐______|\\______▌","▐_______|\\_____▌","▐________|\\____▌","▐_________|\\___▌","▐__________|\\__▌","▐___________|\\_▌","▐____________|\\▌","▐____________/|▌","▐___________/|_▌","▐__________/|__▌","▐_________/|___▌","▐________/|____▌","▐_______/|_____▌","▐______/|______▌","▐_____/|_______▌","▐____/|________▌","▐___/|_________▌","▐__/|__________▌","▐_/|___________▌","▐/|____________▌"]
-            case .custom(let frames): return frames
+            case .singleFrame(let frame): return [frame]
+            case .multiFrame(let frames): return frames
         }
     }
 
@@ -208,7 +209,8 @@ public enum SpinnerPattern {
             case .runner: return 0.14
             case .pong: return 0.08
             case .shark: return 0.12
-            case .custom(_): return 0.08
+            case .singleFrame(_): return 1
+            case .multiFrame(_): return 0.08
         }
     }
 }
