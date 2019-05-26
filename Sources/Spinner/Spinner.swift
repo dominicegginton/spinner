@@ -21,7 +21,7 @@ public final class Spinner {
     /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
 
-    public init(_ pattern: SpinnerPatter, _ text: String = "", speed: Double? = nil) {
+    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil) {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
@@ -55,7 +55,7 @@ public final class Spinner {
         if let text = text {
             setText(text)
         }
-        let finalPattern: SpinnerPatter = SpinnerPatter(stillFrame: completionFrame)
+        let finalPattern: SpinnerPattern = SpinnerPatter(stillFrame: completionFrame)
         self.text += Array(repeating: " ", count: self.getPatternPadding(finalPattern))
         self.pattern = completionType.pattern
         self.running = false
@@ -74,7 +74,7 @@ public final class Spinner {
     /**
     Updates the pattern dispalyed by the spinner
     */
-    public func updatePattern(_ newPattern: SpinnerPatter) {
+    public func updatePattern(_ newPattern: SpinnerPattern) {
         self.setPattern = newPattern
     }
 
@@ -93,7 +93,7 @@ public final class Spinner {
     } 
 
 
-    func setPattern(_ newPattern: SpinnerPatter) {
+    func setPattern(_ newPattern: SpinnerPattern) {
         self.text += Array(repeating: " ", count: self.getPatternPadding(completionType.pattern))
         self.pattern = newPattern
     }
@@ -117,7 +117,7 @@ public final class Spinner {
         }
     }
 
-    func getPatternPadding(_ newPattern: SpinnerPatter) -> Int {
+    func getPatternPadding(_ newPattern: SpinnerPattern) -> Int {
         
         let newPatternFrameWidth: Int = Rainbow.extractModes(for: newPattern.frames[0]).text.count
         let oldPatternFrameWidth: Int = Rainbow.extractModes(for: self.pattern.frames[0]).text.count
