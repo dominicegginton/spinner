@@ -65,10 +65,10 @@ public final class Spinner {
     }
 
     /**
-    Stops the animation for the spinner.
+    Clears the spinner from the terminal and returns the curser to the start of the spinner
     */
-    public func stopAndClear() {
-        self.stop(completionFrame: "", text: "")
+    public func clear() {
+        self.stopSpinner(finalFrame: "", text: "", terminator: "")
     }
 
     /**
