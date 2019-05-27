@@ -17,7 +17,7 @@
 
 ## Install 
 To install within your `Swift` project add the github url to your `Package.swift` file as a dependency. 
-[**Swift Package Manger**](https://swift.org/package-manager/) will sort everything out for your when you run `swift build` 💪
+[**Swift Package Manger**](https://swift.org/package-manager/) will sort everything out for you when you run `swift build` 💪
 ``` swift
 .package(url: "https://github.com/dominicegginton/Spinner", from: "1.0.0")
 ```
