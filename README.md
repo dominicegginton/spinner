@@ -13,10 +13,10 @@
 - Over **60** built in animations 🤩
 - Built in completion functions (Success, Failure, Warning, Information) ✔
 - Easily create your own custom animations
-- Only bug free Spinner library built in `Swift` on github
+- Only bug free Spinner library built in `Swift` on Github
 
 ## Install 
-To install within your `Swift` project add the github url to your `Package.swift` file as a dependency. 
+To install within your `Swift` project add the GitHub url to your `Package.swift` file as a dependency. 
 [**Swift Package Manger**](https://swift.org/package-manager/) will sort everything out for you when you run `swift build` 💪
 ``` swift
 .package(url: "https://github.com/dominicegginton/Spinner", from: "1.0.0")
@@ -37,7 +37,7 @@ Adding a splash of color is easy and has been integrated using [`Rainbow`](https
 let mySpinner = Spinner(.dots, "My Spinner", color: .cyan)
 ```
 #### Completion Types ✅
-Providing users with spinner completion type can be very useful, for example: 🤔 lets hope your task passes, calling `.succeed()` will stop the spinner and display a green ✔. You may also want to provide the spinner with a final string to display to the user.
+Providing users with spinner completion type can be very useful, for example: 🤔 calling `.succeed()` will stop the spinner and display a green ✔. You may also want to provide the spinner with a final string to display to the user.
 ```swift
 mySpinner.succeed("Passed")
 ```
@@ -66,5 +66,3 @@ mySpinner.stop()
 ## Community
 
 Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo build in JavaScript.
-
-Another huge thanks to [kiliankoe](https://github.com/kiliankoe/CLISpinner) for the inspiration to create a more stable and feature rich Swift Spinner.
