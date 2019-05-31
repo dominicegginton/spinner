@@ -1,6 +1,7 @@
 import Foundation
 import Dispatch
 import Rainbow
+import Signals
 
 public final class Spinner {
 
@@ -32,6 +33,11 @@ public final class Spinner {
         self.frameIndex = 0
         self.running = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
+
+        Signals.trap(signal: .int) { _ in
+            print("\u{001B}[?25h", terminator: "")
+            exit(0)
+        }
     }
 
     /**
