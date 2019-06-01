@@ -64,8 +64,8 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner, defult is 'nil' this will keep the current text the spinner has
     - Parameter terminator: The terminator used for ending writing a line to the terminal, defult is '\n' this will return the curser to a new line
     */
-    public func stop(finalFrame: String? = nil, text: String? = nil, terminator: String = "\n") {
-        self.stopSpinner(finalFrame: finalFrame, text: text, terminator: terminator)
+    public func stop(finalFrame: String? = nil, text: String? = nil, color: Color? = nil, terminator: String = "\n") {
+        self.stopSpinner(finalFrame: finalFrame, text: text, color: color, terminator: terminator)
     }
 
     /**
@@ -106,7 +106,7 @@ public final class Spinner {
    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func succeed(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "✔".green, text: text)
+        self.stopSpinner(finalFrame: "✔", text: text, color: .green)
     }
 
     /**
@@ -115,7 +115,7 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func failure(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "✖".red, text: text)
+        self.stopSpinner(finalFrame: "✖", text: text, color: .red)
     }
 
     /**
@@ -124,7 +124,7 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func warning(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "⚠".yellow, text: text)
+        self.stopSpinner(finalFrame: "⚠", text: text, color: .yellow)
     }
 
     /**
@@ -133,12 +133,16 @@ public final class Spinner {
     - Parameter text: The persistant text that will be dispalyed on the compleed spinner
     */
     public func information(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "ℹ".blue, text: text)
+        self.stopSpinner(finalFrame: "ℹ", text: text, color: .blue)
     }
 
-    func stopSpinner(finalFrame: String? = nil, text: String? = nil, terminator: String = "\n") {
+    func stopSpinner(finalFrame: String? = nil, text: String? = nil, color: Color? = nil, terminator: String = "\n") {
+        self.running = false
         if let text = text {
             setText(text)
+        }
+        if let color = color {
+            setColor(color)
         }
         var finalPattern: SpinnerPattern?
         if let frame = finalFrame {
@@ -148,7 +152,6 @@ public final class Spinner {
             self.text += Array(repeating: " ", count: self.getPatternPadding(pattern))
             self.pattern = pattern
         }
-        self.running = false
         self.unhideCursor()
         self.renderSpinner()
         print(terminator: terminator)
