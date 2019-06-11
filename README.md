@@ -19,7 +19,7 @@
 To install within your Swift project add the GitHub url to your `Package.swift` file as a dependency. 
 [**Swift Package Manger**](https://swift.org/package-manager/) will sort everything out for you when you run `swift build` 💪
 ``` swift
-.package(url: "https://github.com/dominicegginton/Spinner", from: "1.0.0")
+.package(url: "https://github.com/dominicegginton/Spinner", from: "1.1.0")
 ```
 
 ## Getting Started
