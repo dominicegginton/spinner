@@ -1,5 +1,6 @@
 # Swift CLI Spinners
-[![Build Status](https://travis-ci.com/dominicegginton/Spinner.svg?branch=master)](https://travis-ci.com/dominicegginton/Spinner)
+[![Build Status](https://travis-ci.com/dominicegginton/Spinner.svg?branch=master)](https://travis-ci.com/dominicegginton/Spinner) 
+[![GitHub release](https://img.shields.io/github/release/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/releases)
 > Full featured Swift library for creating powerful terminal Spinners 🔥
 
 <p align="center">
