@@ -8,7 +8,7 @@ final class SpinnerTests: XCTestCase {
         XCTAssertEqual(false, testSpinner.running)
         testSpinner.start()
         XCTAssertEqual(true, testSpinner.running)
-        testSpinner.stopAndClear()
+        testSpinner.clear()
         XCTAssertEqual(false, testSpinner.running)
     }
 
@@ -18,21 +18,11 @@ final class SpinnerTests: XCTestCase {
         testSpinner.start()
         testSpinner.updateText("Spinner")
         XCTAssertEqual("Spinner    ", testSpinner.text)
-        testSpinner.stopAndClear()
-    }
-
-    func testFrames() {
-        let testPattern = Pattern(multiFrame: ["a","b","c","d"])
-        let testSpinner = Spinner(testPattern, "testSpinner")
-        
-        XCTAssertEqual(testSpinner.currentFrame(), "a")
-        XCTAssertEqual(testSpinner.currentFrame(), "b")
-        XCTAssertEqual(testSpinner.currentFrame(), "c")
-        XCTAssertEqual(testSpinner.currentFrame(), "d")
+        testSpinner.clear()
     }
 
     static var allTests = [
         ("testSpinnerState", testSpinnerState),
-        ("testSpinnerText", testSpinnerText),
+        ("testSpinnerText", testSpinnerText)
     ]
 }
