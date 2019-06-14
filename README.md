@@ -26,6 +26,8 @@ To install within your Swift project add the GitHub url to your `Package.swift` 
 ## Getting Started
 To create a simple for `2` seconds spinner:
 ``` swift
+import Spinner
+
 let mySpinner = Spinner(.dots, "My Spinner")
 mySpinner.start()
 sleep(2)
