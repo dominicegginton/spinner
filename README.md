@@ -5,7 +5,7 @@
 
 <p align="center">
 	<br>
-	<img src="Assets/demo.gif">
+	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/demo.gif">
 	<br>
 	<br>
 </p>
