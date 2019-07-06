@@ -1,7 +1,7 @@
 # Swift CLI Spinners
 [![Build Status](https://travis-ci.com/dominicegginton/Spinner.svg?branch=master)](https://travis-ci.com/dominicegginton/Spinner) 
 [![GitHub release](https://img.shields.io/github/release/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/releases)
-> Full featured Swift library for creating powerful terminal Spinners 🔥
+> Full featured Swift library for creating powerful CLI Spinners 🔥
 
 <p align="center">
 	<br>
@@ -41,7 +41,7 @@ mySpinner.succeed("Task Completed")
 ## Documentation
 
 #### Creating a Spinner
-When creating an instance of `Spinner` the initialiser takes the following arguments:
+When creating an instance of `Spinner` the initializer takes the following arguments:
 - `pattern: SpinnerPattern` the pattern that the spinner will display
 - `text: String` the text that will displayed next to the spinner
 - `speed: Double` the speed the spinner will update at
@@ -56,7 +56,7 @@ To start a spinner call the `.start()` function. This will hide the curser and s
 mySpinner.start()
 ```
 #### Stopping the Spinner 🛑
-To stop a Spinner object calling `.stop()` will stop the animation on the current frame, return to a new line and unhide the curser. However to update the Spinner with a final frame and text can be extremely usefully for the user in some cased, to do this you can pass the following arguments to the `.stop()` function:
+To stop a Spinner object calling `.stop()` will stop the animation on the current frame, return to a new line along with re enabling the curser. However to update the Spinner with a final frame and text can be extremely usefully for the user in some cased, to do this you can pass the following arguments to the `.stop()` function:
 - `finalFrame: String` The final frame the Spinner will display
 - `text: String` The text displayed by the Spinner once stopped
 - `color: Color` The color the Spinner will display the pattern in
