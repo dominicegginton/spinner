@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/releases)
 [![GitHub](https://img.shields.io/github/license/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dominicegginton/Spinner.svg)](https://github.com/dominicegginton/Spinner/issues)
-![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-Compatible%20-green.svg)
+[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-Compatible%20-green.svg)](https://swift.org/package-manager/)
 > Full featured Swift library for creating powerful CLI Spinners 🔥
 
 <p align="center">
