@@ -16,8 +16,8 @@
 ## Key Features
 - Over ****60**** built in animations 🤩
 - Built in completion functions (Success, Failure, Warning, Information) ✔
-- Easily create your own custom animations
-- Only bug free Spinner library built in Swift on Github
+- Easily create your own custom Spinner animations
+- Use color to make your Spinners stand out 🎨
 
 ## Install 
 To install within your Swift project add the GitHub url to your `Package.swift` file as a dependency. 
