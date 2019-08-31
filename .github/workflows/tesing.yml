@@ -1,0 +1,19 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: Build Source & Tests
+      run: swift build --build-tests
+    - name: Run Tests
+      run: swift test
