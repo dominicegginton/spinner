@@ -1,5 +1,5 @@
 # Swift CLI Spinners
-[![Build Status](https://travis-ci.com/dominicegginton/Spinner.svg?branch=master)](https://travis-ci.com/dominicegginton/Spinner) 
+[![Actions Status](https://github.com/dominicegginton/spinner/workflows/Testing/badge.svg)](https://github.com/dominicegginton/spinner/actions)
 [![GitHub release](https://img.shields.io/github/release/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/releases)
 [![GitHub](https://img.shields.io/github/license/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dominicegginton/Spinner.svg)](https://github.com/dominicegginton/Spinner/issues)
