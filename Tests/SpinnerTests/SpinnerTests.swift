@@ -4,7 +4,7 @@ import XCTest
 final class SpinnerTests: XCTestCase {
     
     func testSpinnerState() {
-        var testSpinner = Spinner(.dots, "testSpinner")
+        let testSpinner = Spinner(.dots, "testSpinner")
         XCTAssertEqual(false, testSpinner.running)
         testSpinner.start()
         XCTAssertEqual(true, testSpinner.running)
@@ -13,7 +13,7 @@ final class SpinnerTests: XCTestCase {
     }
 
     func testSpinnerText() {
-        var testSpinner = Spinner(.dots, "testSpinner")
+        let testSpinner = Spinner(.dots, "testSpinner")
         XCTAssertEqual("testSpinner", testSpinner.text)
         testSpinner.start()
         testSpinner.updateText("Spinner")
