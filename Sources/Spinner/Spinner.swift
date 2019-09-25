@@ -23,12 +23,15 @@ public final class Spinner {
     var queue: DispatchQueue
     /// Color of the spinner
     var color: Color
+    /// Format of the Spinner
+    var format: String
 
-    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .white) {
+    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .white, format: String = "{S} {T}") {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
         self.color = color
+        self.format = format.uppercased()
 
         self.frameIndex = 0
         self.running = false
@@ -228,7 +231,8 @@ public final class Spinner {
         // Reset cursor to start of line
         print("\r", terminator: "")
         // Print the spinner frame and text
-        print("\(self.currentFrame()) \(self.text)", terminator: "")
+        let  renderString = self.format.replacingOccurrences(of: "{S}", with: self.currentFrame()).replacingOccurrences(of: "{T}", with: self.text)
+        print(renderString, terminator: "")
         // Flush STDOUT
         fflush(stdout)
 
