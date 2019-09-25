@@ -13,11 +13,11 @@ public final class Spinner {
     }
     /// Text that is  displayed next to spinner
     var text: String
-    /// Boolean repersenting fs the spinner is currently animating
+    /// Boolean representing fs the spinner is currently animating
     var running: Bool
-    /// Int repersenitng the current frame
+    /// Int representing the index of the current frame
     var frameIndex: Int
-    /// Double repsenting the wait time for frame animation
+    /// Double repenting the wait time for frame animation
     var speed: Double
     /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
@@ -60,9 +60,9 @@ public final class Spinner {
     /**
     Stops the animation for the spinner.
 
-    - Parameter finalFrame: The persistant frame that will be dispalyed on the compleed spinner, defult is 'nil' this will keep the current frame the spinner is on
-    - Parameter text: The persistant text that will be dispalyed on the compleed spinner, defult is 'nil' this will keep the current text the spinner has
-    - Parameter terminator: The terminator used for ending writing a line to the terminal, defult is '\n' this will return the curser to a new line
+    - Parameter finalFrame: The persistent frame that will be displayed on the completed spinner, default is 'nil' this will keep the current frame the spinner is on
+    - Parameter text: The persistent text that will be displayed on the completed spinner, default is 'nil' this will keep the current text the spinner has
+    - Parameter terminator: The terminator used for ending writing a line to the terminal, default is '\n' this will return the curser to a new line
     */
     public func stop(finalFrame: String? = nil, text: String? = nil, color: Color? = nil, terminator: String = "\n") {
         self.stopSpinner(finalFrame: finalFrame, text: text, color: color, terminator: terminator)
@@ -76,14 +76,14 @@ public final class Spinner {
     }
 
     /**
-    Updates the pattern dispalyed by the spinner
+    Updates the pattern displayed by the spinner
     */
     public func updatePattern(_ newPattern: SpinnerPattern) {
         self.setPattern(newPattern)
     }
 
     /**
-    Updates the text dispalyed next to the spinner
+    Updates the text displayed next to the spinner
     */
     public func updateText(_ newText: String) {
         self.setText(newText)
@@ -101,36 +101,36 @@ public final class Spinner {
         self.setColor(newColor)
     }
     /**
-    Stops the spinner and displays a green ✔ witht the provied text
+    Stops the spinner and displays a green ✔ with the provided text
 
-   - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+   - Parameter text: The persistent text that will be displayed on the completed spinner
     */
     public func succeed(_ text: String? = nil) {
         self.stopSpinner(finalFrame: "✔", text: text, color: .green)
     }
 
     /**
-    Stops the spinner and displays a red ✖ witht the provied text
+    Stops the spinner and displays a red ✖ with the provided text
 
-    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    - Parameter text: The persistent text that will be displayed on the completed spinner
     */
     public func failure(_ text: String? = nil) {
         self.stopSpinner(finalFrame: "✖", text: text, color: .red)
     }
 
     /**
-    Stops the spinner and displays a yellow ⚠ witht the provied text
+    Stops the spinner and displays a yellow ⚠ with the provided text
 
-    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    - Parameter text: The persistent text that will be displayed on the completed spinner
     */
     public func warning(_ text: String? = nil) {
         self.stopSpinner(finalFrame: "⚠", text: text, color: .yellow)
     }
 
     /**
-    Stops the spinner and displays a blue ℹ witht the provied text
+    Stops the spinner and displays a blue ℹ with the provided text
 
-    - Parameter text: The persistant text that will be dispalyed on the compleed spinner
+    - Parameter text: The persistent text that will be displayed on the completed spinner
     */
     public func information(_ text: String? = nil) {
         self.stopSpinner(finalFrame: "ℹ", text: text, color: .blue)
