@@ -93,4 +93,6 @@ let customPattern = SpinnerPattern(multiFrame: ["1","2","3","4","5"])
 let mySpinner = Spinner(customPattern, "My Spinner", speed: 0.3, color: .blue)
 ```
 ## Community
-Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in JavaScript.
+Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in `JavaScript`.
+
+> Please support me by giving this repo a `star`  and a `follow`
