@@ -26,6 +26,15 @@ public final class Spinner {
     /// Format of the Spinner
     var format: String
 
+    /**
+    Create new spinner 
+
+    - Parameter _: SpinnerPattern - The pattern the spinner will animate over
+    - Parameter _: String - The text the spinner will display
+    - Parameter speed: Double - The speed the spinner will animate at - default is defined per SpinnerPattern
+    - Parameter color: Color - The color the animated pattern will render as - default is white
+    - Parameter: format: String - The format of the spinner - default is "{S} {T}"
+    */
     public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .white, format: String = "{S} {T}") {
         self.pattern = pattern
         self.text = text
