@@ -114,6 +114,16 @@ public final class Spinner {
     public func updateColor(_ newColor: Color) {
         self.setColor(newColor)
     }
+
+    /**
+    Updates the format the spinier will render as
+
+    - Parameter: _: String - New format for spinner to display as
+    */
+    public func updateFormat(_ newFormat: String) {
+        self.setFormat(newFormat)
+    }
+
     /**
     Stops the spinner and displays a green ✔ with the provided text
 
@@ -182,6 +192,10 @@ public final class Spinner {
 
     func setSpeed(_ newSpeed: Double) {
         self.speed = newSpeed
+    }
+
+    func setFormat(_ newFormat: String) {
+        self.format = newFormat
     }
 
     func setText(_ newString: String) {
