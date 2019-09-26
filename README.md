@@ -18,6 +18,7 @@
 - Built in completion functions (Success, Failure, Warning, Information) ✔
 - Easily create your own custom Spinner animations
 - Use color to make your Spinners stand out 🎨
+- Use custom Spinner formats to make your the spinners truly work for your project
 
 ## Install 
 To install within your Swift project add the GitHub url to your `Package.swift` file as a dependency. 
@@ -49,9 +50,10 @@ When creating an instance of `Spinner` the initializer takes the following argum
 - `text: String` the text that will displayed next to the spinner
 - `speed: Double` the speed the spinner will update at
 - `color: Color` the color of the spinner - default is
+- `format: String` the format of the spinner
 
 ``` swift
-let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta)
+let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta, format : "{S} {T}")
 ```
 #### Starting the Spinner 🏁
 To start a spinner call the `.start()` function. This will hide the curser and start the spinner animation.
@@ -77,6 +79,13 @@ As you're using a spinner to display information to the user it might be usefull
 ``` swift
 mySpinner.succeed("Passed")
 ```
+#### Spinner Format 📐
+The format of the spinner can be edited to make it perfect for your project. This works by passing the spinner a string on initialization, for example:`{S} {T}` will result in the animated pattern being rendered first and the text after it. This is the default if not serifed. 
+
+- `{S}` Renders the animated pattern
+- `{T}` Renders the text
+
+To display the animated pattern after the text simply use a format of `{T} {S}`. The format also accepts other charters within the string, you can use this for text you know you don't want to update, for example: `{S} - {T}` will result in the `-` being rendered permanently between the animated pattern and text.
 #### Creating Custom Patterns 🔥
 We have ****60**** animated spinner patterns for you to choose from however you may want to create your own. This can easily be done by defining a multiFrame `SpinnerPattern()`, the default speed for custom multiFrame patterns is `0.08`, to change with pass a double representing the speed to the init of the Spinner.
 ``` swift
