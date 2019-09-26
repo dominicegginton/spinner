@@ -118,7 +118,7 @@ public final class Spinner {
     /**
     Updates the format the spinier will render as
 
-    - Parameter: _: String - New format for spinner to display as
+    - Parameter _: String - New format for spinner to display as
     */
     public func updateFormat(_ newFormat: String) {
         self.setFormat(newFormat)
