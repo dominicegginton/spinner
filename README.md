@@ -4,7 +4,7 @@
 [![GitHub](https://img.shields.io/github/license/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dominicegginton/Spinner.svg)](https://github.com/dominicegginton/Spinner/issues)
 [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-Compatible%20-green.svg)](https://swift.org/package-manager/)
-> Full featured Swift library for creating powerful CLI Spinners 🔥
+> Full featured Swift library for creating powerful CLI Spinners 💻🔥
 
 <p align="center">
 	<br>
@@ -18,12 +18,13 @@
 - Built in completion functions (Success, Failure, Warning, Information) ✔
 - Easily create your own custom Spinner animations
 - Use color to make your Spinners stand out 🎨
+- Use custom Spinner formats to make your the spinners truly work for your project
 
 ## Install 
 To install within your Swift project add the GitHub url to your `Package.swift` file as a dependency. 
 [**Swift Package Manger**](https://swift.org/package-manager/) will sort everything out for you when you run `swift build` 💪
 ``` swift
-.package(url: "https://github.com/dominicegginton/Spinner", from: "1.1.0")
+.package(url: "https://github.com/dominicegginton/Spinner", from: "1.1.3")
 ```
 
 ## Getting Started
@@ -49,9 +50,10 @@ When creating an instance of `Spinner` the initializer takes the following argum
 - `text: String` the text that will displayed next to the spinner
 - `speed: Double` the speed the spinner will update at
 - `color: Color` the color of the spinner - default is
+- `format: String` the format of the spinner
 
 ``` swift
-let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta)
+let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta, format : "{S} {T}")
 ```
 #### Starting the Spinner 🏁
 To start a spinner call the `.start()` function. This will hide the curser and start the spinner animation.
@@ -77,6 +79,13 @@ As you're using a spinner to display information to the user it might be usefull
 ``` swift
 mySpinner.succeed("Passed")
 ```
+#### Spinner Format 📐
+The format of the spinner can be edited to make it perfect for your project. This works by passing the spinner a string on initialization, for example:`{S} {T}` will result in the animated pattern being rendered first and the text after it. This is the default if not serifed. 
+
+- `{S}` Renders the animated pattern
+- `{T}` Renders the text
+
+To display the animated pattern after the text simply use a format of `{T} {S}`. The format also accepts other charters within the string, you can use this for text you know you don't want to update, for example: `{S} - {T}` will result in the `-` being rendered permanently between the animated pattern and text.
 #### Creating Custom Patterns 🔥
 We have ****60**** animated spinner patterns for you to choose from however you may want to create your own. This can easily be done by defining a multiFrame `SpinnerPattern()`, the default speed for custom multiFrame patterns is `0.08`, to change with pass a double representing the speed to the init of the Spinner.
 ``` swift
@@ -84,4 +93,6 @@ let customPattern = SpinnerPattern(multiFrame: ["1","2","3","4","5"])
 let mySpinner = Spinner(customPattern, "My Spinner", speed: 0.3, color: .blue)
 ```
 ## Community
-Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in JavaScript.
+Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in `JavaScript`.
+
+> Please support me by giving this repo a `star ⭐️`  and a `follow 👀`

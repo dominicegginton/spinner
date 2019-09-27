@@ -17,7 +17,7 @@ final class SpinnerTests: XCTestCase {
         XCTAssertEqual("testSpinner", testSpinner.text)
         testSpinner.start()
         testSpinner.updateText("Spinner")
-        XCTAssertEqual("Spinner    ", testSpinner.text)
+        XCTAssertEqual("Spinner", testSpinner.text)
         testSpinner.clear()
     }
 
