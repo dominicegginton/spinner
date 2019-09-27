@@ -216,7 +216,7 @@ public final class Spinner {
         
         if textLengthDifference > 0 {
             self.text = newString
-            self.text += Array(repeating: " ", count: textLengthDifference)
+            self.format += Array(repeating: " ", count: textLengthDifference)
         } else {
             self.text = newString
         }
