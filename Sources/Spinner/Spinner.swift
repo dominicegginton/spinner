@@ -195,7 +195,7 @@ public final class Spinner {
     }
 
     func setPattern(_ newPattern: SpinnerPattern) {
-        self.text += Array(repeating: " ", count: self.getPatternPadding(newPattern))
+        self.format += Array(repeating: " ", count: self.getPatternPadding(newPattern))
         self.pattern = newPattern
     }
 
@@ -207,18 +207,22 @@ public final class Spinner {
         self.format = newFormat
     }
 
-    func setText(_ newString: String) {
+    func setText(_ newText: String) {
+        self.format += Array(repeating: " ", count: self.getTextPadding(newText))
+        self.text = newText
+    }
 
-        let newText = Rainbow.extractModes(for: newString)
+    func getTextPadding(_ newText: String) -> Int {
+
+        let newText = Rainbow.extractModes(for: newText)
         let oldText = Rainbow.extractModes(for: self.text)
 
         let textLengthDifference: Int = oldText.text.count - newText.text.count
-        
+
         if textLengthDifference > 0 {
-            self.text = newString
-            self.format += Array(repeating: " ", count: textLengthDifference)
+            return textLengthDifference
         } else {
-            self.text = newString
+            return 0
         }
     }
 
