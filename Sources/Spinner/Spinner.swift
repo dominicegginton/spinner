@@ -212,11 +212,11 @@ public final class Spinner {
         let newText = Rainbow.extractModes(for: newString)
         let oldText = Rainbow.extractModes(for: self.text)
 
-        let textLengthDifferance: Int = oldText.text.count - newText.text.count
+        let textLengthDifference: Int = oldText.text.count - newText.text.count
         
-        if textLengthDifferance > 0 {
+        if textLengthDifference > 0 {
             self.text = newString
-            self.text += Array(repeating: " ", count: textLengthDifferance)
+            self.text += Array(repeating: " ", count: textLengthDifference)
         } else {
             self.text = newString
         }
@@ -227,10 +227,10 @@ public final class Spinner {
         let newPatternFrameWidth: Int = Rainbow.extractModes(for: newPattern.frames[0]).text.count
         let oldPatternFrameWidth: Int = Rainbow.extractModes(for: self.pattern.frames[0]).text.count
 
-        let patternFrameWidthDifferance: Int = oldPatternFrameWidth - newPatternFrameWidth
+        let patternFrameWidthDifference: Int = oldPatternFrameWidth - newPatternFrameWidth
 
-        if patternFrameWidthDifferance > 0 {
-            return patternFrameWidthDifferance
+        if patternFrameWidthDifference > 0 {
+            return patternFrameWidthDifference
         }else {
             return 0
         }
