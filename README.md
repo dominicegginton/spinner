@@ -104,6 +104,13 @@ The spinner object has a default format of `{S} {T}`, this renders the animated 
 ``` swift
 let mySpinner = Spinner(.dots, "My Spinner", format : "{T} - {S}")
 ```
+<p align="center">
+	<br>
+	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/format.gif">
+	<br>
+	<br>
+</p>
+
 #### Creating Custom Patterns
 We have **60** animated spinner patterns, however to create your own, define a new `SpinnerPattern(multiFrame: [String])`. The default speed for multi frame patterns is 0.08, to change this pass a double into the spinner initializer.
 ``` swift
