@@ -90,6 +90,13 @@ Four completion types have been built to display extra useful information to the
 ``` swift
 mySpinner.succeed("Passed")
 ```
+<p align="center">
+	<br>
+	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/completion_types.gif">
+	<br>
+	<br>
+</p>
+
 #### Spinner Format
 The spinner object has a default format of `{S} {T}`, this renders the animated pattern before the text with a space between. By passing a string with a new format to the initializer or calling `.updateFormat(String)` you can use a custom format. Any String character can be used within the format string and will be permanently rendered, only the following will be replaced:
 - `{S}` Renders the animated pattern
@@ -97,12 +104,26 @@ The spinner object has a default format of `{S} {T}`, this renders the animated 
 ``` swift
 let mySpinner = Spinner(.dots, "My Spinner", format : "{T} - {S}")
 ```
+<p align="center">
+	<br>
+	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/format.gif">
+	<br>
+	<br>
+</p>
+
 #### Creating Custom Patterns
 We have **60** animated spinner patterns, however to create your own, define a new `SpinnerPattern(multiFrame: [String])`. The default speed for multi frame patterns is 0.08, to change this pass a double into the spinner initializer.
 ``` swift
 let customPattern = SpinnerPattern(multiFrame: ["1","2","3","4","5"])
 let mySpinner = Spinner(customPattern, "My Spinner", speed: 0.3)
 ```
+<p align="center">
+	<br>
+	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/custom_pattern.gif">
+	<br>
+	<br>
+</p>
+
 ## Community
 Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in `JavaScript`.
 
