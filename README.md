@@ -90,6 +90,13 @@ Four completion types have been built to display extra useful information to the
 ``` swift
 mySpinner.succeed("Passed")
 ```
+<p align="center">
+	<br>
+	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/completion_types.gif">
+	<br>
+	<br>
+</p>
+
 #### Spinner Format
 The spinner object has a default format of `{S} {T}`, this renders the animated pattern before the text with a space between. By passing a string with a new format to the initializer or calling `.updateFormat(String)` you can use a custom format. Any String character can be used within the format string and will be permanently rendered, only the following will be replaced:
 - `{S}` Renders the animated pattern
