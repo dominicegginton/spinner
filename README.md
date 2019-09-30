@@ -16,9 +16,9 @@
 ## Key Features
 - Over ****60**** built in animations 🤩
 - Built in completion functions (Success, Failure, Warning, Information) ✔
-- Easily create your own custom Spinner animations
+- Easily create your own custom Spinner animations 
 - Use color to make your Spinners stand out 🎨
-- Use custom Spinner formats to make your the spinners truly work for your project
+- Supports custom formats to make your the spinners truly work for your project 📐
 
 ## Install 
 To install within your Swift project add the GitHub url to your `Package.swift` file as a dependency. 
@@ -42,55 +42,66 @@ Updating the user with a completion type can be useful for example:
 ``` swift
 mySpinner.succeed("Task Completed")
 ```
-## Documentation
+## Documentation 📚
 
 #### Creating a Spinner
-When creating an instance of `Spinner` the initializer takes the following arguments:
-- `pattern: SpinnerPattern` the pattern that the spinner will display
-- `text: String` the text that will displayed next to the spinner
-- `speed: Double` the speed the spinner will update at
-- `color: Color` the color of the spinner - default is
-- `format: String` the format of the spinner
+To create a spinner, initialize and instance of the `Spinner` class. The initializer takes the following arguments:
+- `pattern: SpinnerPattern` The pattern that the spinner will display
+- `text: String` The text that will displayed next to the spinner
+- `speed: Double` The speed the animation
+- `color: Color` The color of the spinner - default is
+- `format: String` The format of the spinner
 
 ``` swift
 let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta, format : "{S} {T}")
 ```
-#### Starting the Spinner 🏁
-To start a spinner call the `.start()` function. This will hide the curser and start the spinner animation.
+#### Starting the Spinner
+To start a spinner call the `.start()` function. This will hide the curser and start the animation of the pattern.
 ``` swift
 mySpinner.start()
 ```
-#### Stopping the Spinner 🛑
-To stop a Spinner object calling `.stop()` will stop the animation on the current frame, return to a new line along with re enabling the curser. However to update the Spinner with a final frame and text can be extremely usefully for the user in some cased, to do this you can pass the following arguments to the `.stop()` function:
+#### Updating Properties
+While the spinner is still going you may want to update its properties. to do this call one of the update functions.
+- `.updatePattern(SpinnerPattern)` Updates the pattern that is animated over
+- `.updateText(String)` Updates the text displayed next to the spinner
+- `.updateSpeed(Double)` Updates the animation speed
+- `.updateColor(Color)` Updates the colors of the animated pattern
+- `.updateFormat(String)` Updates the format of the spinner
+#### Stopping the Spinner
+To stop a spinner from animating call the `.stop()` function on its instance, this will stop the animation on the current frame, return to a new line along with re enabling the curser. The `.stop()` function also takes arguments to allow for a final update of the spinner, this can be extremely usefully: 
 - `finalFrame: String` The final frame the Spinner will display
 - `text: String` The text displayed by the Spinner once stopped
 - `color: Color` The color the Spinner will display the pattern in
+- `terminator: String` The termination string passed to the final print function - default is "\n" for a new line
 ``` swift
-mySpinner.stop(finalFrame: "!", text: "Final Text", .cyan)
+mySpinner.stop(finalFrame: "!", text: "Final Text", .cyan, terminator: "\n")
 ``` 
-#### Clearing the Spinner 🧽
-It might be important to stop the Spinner and clear it at the same time, `.clear()` is the function to call if you're looking for this.
+#### Clear
+To stop the spinner and clear it at the same time call the `.clear()` function.
 ``` swift
 mySpinner.clear()
 ```
-#### Completion Types ✅
-As you're using a spinner to display information to the user it might be usefully to provide a  type when stopping the Spinner. There are 4 different built-in types for different states: `.succeed()`, `.failure()`, `.warning()` and `.information()`. Each completion type also takes these arguments:
-- `text: String` The text that will displayed next to the stopped Spinner
+#### Completion Types
+Four completion types have been built to display extra useful information to the user. Pass a string to the completion type to change the text of the stopped spinner. 
+- `.succeed()` A green tick is displayed
+- `.failure()` A red cross is displayed
+- `.warning()` A yellow warning triangle sign is displayed 
+- `.information()` A blue information sign is displayed
 ``` swift
 mySpinner.succeed("Passed")
 ```
-#### Spinner Format 📐
-The format of the spinner can be edited to make it perfect for your project. This works by passing the spinner a string on initialization, for example:`{S} {T}` will result in the animated pattern being rendered first and the text after it. This is the default if not serifed. 
-
+#### Spinner Format
+The spinner object has a default format of `{S} {T}`, this renders the animated pattern before the text with a space between. By passing a string with a new format to the initializer or calling `.updateFormat(String)` you can use a custom format. Any String character can be used within the format string and will be permanently rendered, only the following will be replaced:
 - `{S}` Renders the animated pattern
 - `{T}` Renders the text
-
-To display the animated pattern after the text simply use a format of `{T} {S}`. The format also accepts other charters within the string, you can use this for text you know you don't want to update, for example: `{S} - {T}` will result in the `-` being rendered permanently between the animated pattern and text.
-#### Creating Custom Patterns 🔥
-We have ****60**** animated spinner patterns for you to choose from however you may want to create your own. This can easily be done by defining a multiFrame `SpinnerPattern()`, the default speed for custom multiFrame patterns is `0.08`, to change with pass a double representing the speed to the init of the Spinner.
+``` swift
+let mySpinner = Spinner(.dots, "My Spinner", format : "{T} - {S}")
+```
+#### Creating Custom Patterns
+We have **60** animated spinner patterns, however to create your own, define a new `SpinnerPattern(multiFrame: [String])`. The default speed for multi frame patterns is 0.08, to change this pass a double into the spinner initializer.
 ``` swift
 let customPattern = SpinnerPattern(multiFrame: ["1","2","3","4","5"])
-let mySpinner = Spinner(customPattern, "My Spinner", speed: 0.3, color: .blue)
+let mySpinner = Spinner(customPattern, "My Spinner", speed: 0.3)
 ```
 ## Community
 Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in `JavaScript`.
