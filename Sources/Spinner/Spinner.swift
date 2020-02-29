@@ -35,7 +35,7 @@ public final class Spinner {
     - Parameter color: Color - The color the animated pattern will render as - default is white
     - Parameter: format: String - The format of the spinner - default is "{S} {T}"
     */
-    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .white, format: String = "{S} {T}") {
+    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .default, format: String = "{S} {T}") {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
