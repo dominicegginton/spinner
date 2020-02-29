@@ -49,7 +49,7 @@ To create a spinner, initialize and instance of the `Spinner` class. The initial
 - `pattern: SpinnerPattern` The pattern that the spinner will display
 - `text: String` The text that will displayed next to the spinner
 - `speed: Double` The speed the animation
-- `color: Color` The color of the spinner - default is
+- `color: Color` The color of the spinner
 - `format: String` The format of the spinner
 
 ``` swift
