@@ -14,8 +14,8 @@
 </p>
 
 ## Key Features
-- Over ****60**** built in animations 🤩
-- Built in completion functions (Success, Failure, Warning, Information) ✔
+- Over ****60**** built-in animations 🤩
+- Built-in completion functions (Success, Failure, Warning, Information) ✔
 - Easily create your own custom Spinner animations 
 - Use color to make your Spinners stand out 🎨
 - Supports custom formats to make your the spinners truly work for your project 📐
@@ -45,9 +45,9 @@ mySpinner.succeed("Task Completed")
 ## Documentation 📚
 
 #### Creating a Spinner
-To create a spinner, initialize and instance of the `Spinner` class. The initializer takes the following arguments:
+To create a spinner, initialize an instance of the `Spinner` class. The initializer takes the following arguments:
 - `pattern: SpinnerPattern` The pattern that the spinner will display
-- `text: String` The text that will displayed next to the spinner
+- `text: String` The text that will be displayed next to the spinner
 - `speed: Double` The speed the animation
 - `color: Color` The color of the spinner
 - `format: String` The format of the spinner
@@ -68,7 +68,7 @@ While the spinner is still going you may want to update its properties. to do th
 - `.updateColor(Color)` Updates the colors of the animated pattern
 - `.updateFormat(String)` Updates the format of the spinner
 #### Stopping the Spinner
-To stop a spinner from animating call the `.stop()` function on its instance, this will stop the animation on the current frame, return to a new line along with re enabling the curser. The `.stop()` function also takes arguments to allow for a final update of the spinner, this can be extremely usefully: 
+To stop a spinner from animating call the `.stop()` function on its instance, this will stop the animation on the current frame, return to a new line along with re-enabling the curser. The `.stop()` function also takes arguments to allow for a final update of the spinner, this can be extremely usefully: 
 - `finalFrame: String` The final frame the Spinner will display
 - `text: String` The text displayed by the Spinner once stopped
 - `color: Color` The color the Spinner will display the pattern in
