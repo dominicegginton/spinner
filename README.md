@@ -42,6 +42,10 @@ Updating the user with a completion type can be useful for example:
 ``` swift
 mySpinner.succeed("Task Completed")
 ```
+
+## Example Project
+Take a look at the [example project](https://github.com/dominicegginton/Spinner/tree/master/example) included 👀
+
 ## Documentation 📚
 
 #### Creating a Spinner
