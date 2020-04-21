@@ -1,7 +1,2 @@
-import XCTest
-
-import SpinnerTests
-
-var tests = [XCTestCaseEntry]()
-tests += SpinnerTests.allTests()
-XCTMain(tests)
+// LinuxMain.swift
+fatalError("Run the tests with `swift test --enable-test-discovery`.")

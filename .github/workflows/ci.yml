@@ -1,0 +1,16 @@
+name: CI
+on: push
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macOS-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Source & Tests
+        run: swift build --build-tests
+      - name: Test
+        run: swift test --enable-test-discovery
