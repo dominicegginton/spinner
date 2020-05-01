@@ -1,60 +1,69 @@
-# Swift CLI Spinners
-[![Actions Status](https://github.com/dominicegginton/spinner/workflows/Testing/badge.svg)](https://github.com/dominicegginton/spinner/actions)
-[![GitHub release](https://img.shields.io/github/release/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/releases)
-[![GitHub](https://img.shields.io/github/license/dominicegginton/spinner.svg)](https://github.com/dominicegginton/Spinner/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/dominicegginton/Spinner.svg)](https://github.com/dominicegginton/Spinner/issues)
-[![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-Compatible%20-green.svg)](https://swift.org/package-manager/)
-> Full featured Swift library for creating powerful CLI Spinners 💻🔥
+# Spinner
 
-<p align="center">
+> 🔥 Powerful Swift CLI Spinners
+
+<div align="center">
 	<br>
-	<img src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/demo.gif">
+	<br>
+	<img  src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/demo.gif">
 	<br>
 	<br>
-</p>
+</div>
 
 ## Key Features
-- Over ****60**** built-in animations 🤩
-- Built-in completion functions (Success, Failure, Warning, Information) ✔
-- Easily create your own custom Spinner animations 
-- Use color to make your Spinners stand out 🎨
-- Supports custom formats to make your the spinners truly work for your project 📐
+
+- Over **60** beautiful built-in spinner animations
+- Easily create custom spinners animations and formats
+- Built-in completion functions (Success, Failure, Warning, Information)
+- Support for colors using [rainbow](https://github.com/onevcat/Rainbow)
 
 ## Install 
-To install within your Swift project add the GitHub url to your `Package.swift` file as a dependency. 
-[**Swift Package Manger**](https://swift.org/package-manager/) will sort everything out for you when you run `swift build` 💪
+
+Install via the [**Swift Package Manger**](https://swift.org/package-manager/) by declaring **Spinner** as a dependency in your  `Package.swift`:
+
 ``` swift
 .package(url: "https://github.com/dominicegginton/Spinner", from: "1.1.4")
 ```
 
+Remember to add **Spinner** to your target as a dependency:
+
+``` swift
+.target(name: "your_cool_project", dependencies: ["Spinner"])
+```
+
+
+
 ## Getting Started
-To create a simple for `2` seconds spinner:
+
+To create a spinner for `2` seconds:
+
 ``` swift
 import Spinner
 
 let mySpinner = Spinner(.dots, "My Spinner")
 mySpinner.start()
-sleep(2)
+sleep(2) // do work
 mySpinner.stop()
 ```
 
-Updating the user with a completion type can be useful for example:
-``` swift
-mySpinner.succeed("Task Completed")
-```
+## Documentation
 
-## Example Project
-Take a look at the [example project](https://github.com/dominicegginton/Spinner/tree/master/example) included 👀
+### Creating a Spinner
 
-## Documentation 📚
-
-#### Creating a Spinner
 To create a spinner, initialize an instance of the `Spinner` class. The initializer takes the following arguments:
+
 - `pattern: SpinnerPattern` The pattern that the spinner will display
 - `text: String` The text that will be displayed next to the spinner
 - `speed: Double` The speed the animation
 - `color: Color` The color of the spinner
 - `format: String` The format of the spinner
+
+| Param | Type | Description |
+| --- | --- | --- |
+| pattern | `String` | animation |
+| options | `Object` | koa-icon options object |
+| options.maxAge | `Number` | maximum time the favicon is considered fresh - default one day |
+| options.type | `String` | mime type of favicon - default 'x-icon' |
 
 ``` swift
 let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta, format : "{S} {T}")
@@ -102,6 +111,7 @@ mySpinner.succeed("Passed")
 </p>
 
 #### Spinner Format
+
 The spinner object has a default format of `{S} {T}`, this renders the animated pattern before the text with a space between. By passing a string with a new format to the initializer or calling `.updateFormat(String)` you can use a custom format. Any String character can be used within the format string and will be permanently rendered, only the following will be replaced:
 - `{S}` Renders the animated pattern
 - `{T}` Renders the text
@@ -129,6 +139,5 @@ let mySpinner = Spinner(customPattern, "My Spinner", speed: 0.3)
 </p>
 
 ## Community
-Many thanks for the 60 plus spinner frames that can be found over at [sindresorhus](https://github.com/sindresorhus/cli-spinners) repo built in `JavaScript`.
 
-> Please support me by giving this repo a `star ⭐️`  and a `follow 👀`
+Many thanks for the **60 plus** spinner frames that can be found over at [sindresorhus/cli-spinners](https://github.com/sindresorhus/cli-spinners) repo built in `JavaScript`.
