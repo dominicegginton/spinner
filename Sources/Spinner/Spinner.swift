@@ -32,7 +32,6 @@ public final class Spinner {
         self.speed = speed ?? pattern.defaultSpeed
         self.color = color
         self.format = format.uppercased()
-
         self.frameIndex = 0
         self.running = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
@@ -50,9 +49,7 @@ public final class Spinner {
         self.hideCursor()
         self.running = true
         self.queue.async { [weak self] in
-
             guard let `self` = self else { return }
-
             while self.running {
                 self.renderSpinner()
                 self.sleep(seconds: self.speed)
@@ -129,12 +126,9 @@ public final class Spinner {
     }
 
     func getTextPadding(_ newText: String) -> Int {
-
         let newText = Rainbow.extractModes(for: newText)
         let oldText = Rainbow.extractModes(for: self.text)
-
         let textLengthDifference: Int = oldText.text.count - newText.text.count
-
         if textLengthDifference > 0 {
             return textLengthDifference
         } else {
@@ -143,12 +137,9 @@ public final class Spinner {
     }
 
     func getPatternPadding(_ newPattern: SpinnerPattern) -> Int {
-        
         let newPatternFrameWidth: Int = Rainbow.extractModes(for: newPattern.frames[0]).text.count
         let oldPatternFrameWidth: Int = Rainbow.extractModes(for: self.pattern.frames[0]).text.count
-
         let patternFrameWidthDifference: Int = oldPatternFrameWidth - newPatternFrameWidth
-
         if patternFrameWidthDifference > 0 {
             return patternFrameWidthDifference
         }else {
@@ -161,22 +152,15 @@ public final class Spinner {
     }
 
     func currentFrame() -> String {
-
         let currentFrame = self.pattern.frames[self.frameIndex].applyingCodes(self.color)
-
         self.frameIndex = (self.frameIndex + 1) % self.pattern.frames.count
-
         return currentFrame
     }
 
     func renderSpinner() {
-
-        // Reset cursor to start of line
         print("\r", terminator: "")
-        // Print the spinner frame and text
         let  renderString = self.format.replacingOccurrences(of: "{S}", with: self.currentFrame()).replacingOccurrences(of: "{T}", with: self.text)
         print(renderString, terminator: "")
-        // Flush STDOUT
         fflush(stdout)
 
     }
