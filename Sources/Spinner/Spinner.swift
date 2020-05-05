@@ -69,7 +69,20 @@ public final class Spinner {
     - Parameter terminator: String - The terminator used for ending writing a line to the terminal, default is '\n' this will return the curser to a new line
     */
     public func stop(finalFrame: String? = nil, text: String? = nil, color: Color? = nil, terminator: String = "\n") {
-        self.stopSpinner(finalFrame: finalFrame, text: text, color: color, terminator: terminator)
+        self.running = false
+        self.text = text ?? self.text
+        self.color = color ?? self.color
+        var finalPattern: SpinnerPattern?
+        if let frame = finalFrame {
+            finalPattern = SpinnerPattern(singleFrame: frame)
+        }
+        if let pattern = finalPattern {
+            self.text += Array(repeating: " ", count: self.getPatternPadding(pattern))
+            self.pattern = pattern
+        }
+        self.unhideCursor()
+        self.renderSpinner()
+        print(terminator: terminator)
     }
 
     /**
@@ -85,7 +98,7 @@ public final class Spinner {
    - Parameter _: String The persistent text that will be displayed on the completed spinner, default will keep the current text of the spinner 
     */
     public func succeed(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "✔", text: text, color: .green)
+        self.stop(finalFrame: "✔", text: text, color: .green)
     }
 
     /**
@@ -94,7 +107,7 @@ public final class Spinner {
     - Parameter _: String The persistent text that will be displayed on the completed spinner
     */
     public func failure(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "✖", text: text, color: .red)
+        self.stop(finalFrame: "✖", text: text, color: .red)
     }
 
     /**
@@ -103,7 +116,7 @@ public final class Spinner {
     - Parameter _: String The persistent text that will be displayed on the completed spinner,  default will keep the current text of the spinner 
     */
     public func warning(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "⚠", text: text, color: .yellow)
+        self.stop(finalFrame: "⚠", text: text, color: .yellow)
     }
 
     /**
@@ -112,50 +125,7 @@ public final class Spinner {
     - Parameter _: String The persistent text that will be displayed on the completed spinner,  default will keep the current text of the spinner 
     */
     public func information(_ text: String? = nil) {
-        self.stopSpinner(finalFrame: "ℹ", text: text, color: .blue)
-    }
-
-    func stopSpinner(finalFrame: String? = nil, text: String? = nil, color: Color? = nil, terminator: String = "\n") {
-        self.running = false
-        if let text = text {
-            setText(text)
-        }
-        if let color = color {
-            setColor(color)
-        }
-        var finalPattern: SpinnerPattern?
-        if let frame = finalFrame {
-            finalPattern = SpinnerPattern(singleFrame: frame)
-        }
-        if let pattern = finalPattern {
-            self.text += Array(repeating: " ", count: self.getPatternPadding(pattern))
-            self.pattern = pattern
-        }
-        self.unhideCursor()
-        self.renderSpinner()
-        print(terminator: terminator)
-    }
-
-    func setColor(_ newColor: Color) {
-        self.color = newColor
-    }
-
-    func setPattern(_ newPattern: SpinnerPattern) {
-        self.format += Array(repeating: " ", count: self.getPatternPadding(newPattern))
-        self.pattern = newPattern
-    }
-
-    func setSpeed(_ newSpeed: Double) {
-        self.speed = newSpeed
-    }
-
-    func setFormat(_ newFormat: String) {
-        self.format = newFormat
-    }
-
-    func setText(_ newText: String) {
-        self.format += Array(repeating: " ", count: self.getTextPadding(newText))
-        self.text = newText
+        self.stop(finalFrame: "ℹ", text: text, color: .blue)
     }
 
     func getTextPadding(_ newText: String) -> Int {
