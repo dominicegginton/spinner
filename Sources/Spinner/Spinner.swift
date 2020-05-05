@@ -4,27 +4,18 @@ import Rainbow
 import Signals
 
 public final class Spinner {
-
-    /// Pattern holding frames to be animated    
-    var pattern: SpinnerPattern {
+    public var pattern: SpinnerPattern {
         didSet {
             self.frameIndex = 0
         }
     }
-    /// Text that is  displayed next to spinner
-    var text: String
-    /// Boolean representing fs the spinner is currently animating
+    public  var text: String
+    public var color: Color
+    public  var format: String
+    public var speed: Double
     var running: Bool
-    /// Int representing the index of the current frame
     var frameIndex: Int
-    /// Double repenting the wait time for frame animation
-    var speed: Double
-    /// Dispatch queue that the spinner will run within
     var queue: DispatchQueue
-    /// Color of the spinner
-    var color: Color
-    /// Format of the Spinner
-    var format: String
 
     /**
     Create new spinner 
@@ -85,52 +76,7 @@ public final class Spinner {
     Clears the spinner from the terminal and returns the curser to the start of the spinner
     */
     public func clear() {
-        self.stopSpinner(finalFrame: "", text: "", terminator: "\r")
-    }
-
-    /**
-    Updates the pattern displayed by the spinner
-
-    - Parameter _: SpinnerPattern - New pattern the spinner should animate over
-    */
-    public func updatePattern(_ newPattern: SpinnerPattern) {
-        self.setPattern(newPattern)
-    }
-
-    /**
-    Updates the text displayed next to the spinner
-    
-    - Parameter _: String - New text the spinner should display
-    */
-    public func updateText(_ newText: String) {
-        self.setText(newText)
-    }
-
-    /**
-    Updates the speed of the spinner
-
-    - Parameter _: Double - New speed the spinner should animate at
-    */
-    public func updateSpeed(_ newSpeed: Double) {
-        self.setSpeed(newSpeed)
-    } 
-
-    /**
-    Updates the color of the spinner
-
-    - Parameter _: Color - New color for the spinner
-    */
-    public func updateColor(_ newColor: Color) {
-        self.setColor(newColor)
-    }
-
-    /**
-    Updates the format the spinier will render as
-
-    - Parameter _: String - New format for spinner to display as
-    */
-    public func updateFormat(_ newFormat: String) {
-        self.setFormat(newFormat)
+        self.stop(finalFrame: "", text: "", terminator: "\r")
     }
 
     /**
