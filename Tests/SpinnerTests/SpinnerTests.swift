@@ -16,7 +16,7 @@ final class SpinnerTests: XCTestCase {
         let testSpinner = Spinner(.dots, "testSpinner")
         XCTAssertEqual("testSpinner", testSpinner.text)
         testSpinner.start()
-        testSpinner.updateText("Spinner")
+        testSpinner.text = "Spinner"
         XCTAssertEqual("Spinner", testSpinner.text)
         testSpinner.clear()
     }
