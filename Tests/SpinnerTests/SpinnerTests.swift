@@ -20,9 +20,4 @@ final class SpinnerTests: XCTestCase {
         XCTAssertEqual("Spinner", testSpinner.text)
         testSpinner.clear()
     }
-
-    static var allTests = [
-        ("testSpinnerState", testSpinnerState),
-        ("testSpinnerText", testSpinnerText)
-    ]
 }
