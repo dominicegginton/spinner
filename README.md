@@ -1,5 +1,7 @@
 # Spinner
 
+![Workflow](https://img.shields.io/github/workflow/status/dominicegginton/Spinner/CI?label=build) ![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/dominicegginton/Spinner?include_prereleases&label=release)
+
 > 🔥 Powerful Swift CLI Spinners
 
 <div align="center">
