@@ -60,13 +60,6 @@ To create a spinner, initialize an instance of the `Spinner` class. The initiali
 - `color: Color` The color of the spinner
 - `format: String` The format of the spinner
 
-| Param | Type | Description |
-| --- | --- | --- |
-| pattern | `String` | animation |
-| options | `Object` | koa-icon options object |
-| options.maxAge | `Number` | maximum time the favicon is considered fresh - default one day |
-| options.type | `String` | mime type of favicon - default 'x-icon' |
-
 ``` swift
 let mySpinner = Spinner(.dots, "My Spinner", speed: 0.5, color: .lightMagenta, format : "{S} {T}")
 ```
