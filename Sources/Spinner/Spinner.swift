@@ -11,7 +11,7 @@ public final class Spinner {
             self.frameIndex = 0
         }
     }
-    /// Text that is  displayed next to spinner
+    /// Text that is displayed next to spinner
     var text: String
     /// Boolean representing fs the spinner is currently animating
     var running: Bool
