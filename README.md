@@ -1,10 +1,10 @@
-# Spinner
+<h1 align='center'>Spinner</h1>
+<h4 align='center'>Powerful Swift CLI Spinners
 
-![Workflow](https://img.shields.io/github/workflow/status/dominicegginton/Spinner/CI?label=build) ![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/dominicegginton/Spinner?include_prereleases&label=release)
-
-> 🔥 Powerful Swift CLI Spinners
-
-<div align="center">
+<div align='center'>
+	<br>
+	<img src='https://img.shields.io/github/workflow/status/dominicegginton/Spinner/CI?label=CI'>
+	<img src='https://img.shields.io/github/v/tag/dominicegginton/Spinner?include_prereleases&label=Release'>
 	<br>
 	<br>
 	<img  src="https://raw.githubusercontent.com/dominicegginton/Spinner/master/Assets/demo.gif">
