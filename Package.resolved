@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Signals",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueSignals.git",
+        "state": {
+          "branch": null,
+          "revision": "1f6c49e186c8a4eeef87ba14f2f97b8646559d13",
+          "version": "1.0.200"
+        }
+      },
+      {
+        "package": "Rainbow",
+        "repositoryURL": "https://github.com/onevcat/Rainbow",
+        "state": {
+          "branch": null,
+          "revision": "626c3d4b6b55354b4af3aa309f998fae9b31a3d9",
+          "version": "3.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
