@@ -40,6 +40,7 @@ Remember to add **Spinner** to your target as a dependency:
 To create a spinner for `2` seconds:
 
 ``` swift
+import Foundation
 import Spinner
 
 let mySpinner = Spinner(.dots, "My Spinner")
