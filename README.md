@@ -51,7 +51,7 @@ mySpinner.stop()
 
 ## Documentation
 
-### Creating a Spinner
+#### Creating a Spinner
 
 To create a spinner, initialize an instance of the `Spinner` class. The initializer takes the following arguments:
 
