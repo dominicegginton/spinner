@@ -1,5 +1,2 @@
-Packages
 .build/
-xcuserdata
-DerivedData/
 *.xcodeproj
