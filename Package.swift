@@ -7,11 +7,12 @@ let package = Package(
         .library(name: "Spinner", targets: ["Spinner"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/dominicegginton/Nanoseconds", from: "1.0.0"),
         .package(url: "https://github.com/onevcat/Rainbow", from: "3.0.0"),
         .package(url: "https://github.com/IBM-Swift/BlueSignals.git", from: "1.0.0")
     ],
     targets: [
-        .target(name: "Spinner", dependencies: ["Rainbow", "Signals"]),
+        .target(name: "Spinner", dependencies: ["Nanoseconds","Rainbow", "Signals"]),
         .testTarget(name: "SpinnerTests", dependencies: ["Spinner"]),
     ]
 )

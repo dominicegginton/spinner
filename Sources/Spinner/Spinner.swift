@@ -1,4 +1,5 @@
 import Foundation
+import Nanoseconds
 import Dispatch
 import Rainbow
 import Signals
@@ -23,6 +24,8 @@ public final class Spinner {
     var queue: DispatchQueue
     /// Color of the spinner
     var color: Color
+    /// timestamp
+    var timestamp: Now?
     /// Format of the Spinner
     var format: String
 
@@ -58,6 +61,7 @@ public final class Spinner {
     public func start() {
         self.hideCursor()
         self.running = true
+        self.timestamp = Now()
         self.queue.async { [weak self] in
 
             guard let `self` = self else { return }
@@ -234,7 +238,12 @@ public final class Spinner {
         // Reset cursor to start of line
         print("\r", terminator: "")
         // Print the spinner frame and text
-        let  renderString = self.format.replacingOccurrences(of: "{S}", with: self.currentFrame()).replacingOccurrences(of: "{T}", with: self.text)
+        var  renderString = self.format.replacingOccurrences(of: "{S}", with: self.currentFrame()).replacingOccurrences(of: "{T}", with: self.text)
+        // get duration
+        if let timestamp = self.timestamp {
+            let duration = Now() - timestamp
+            renderString = renderString.replacingOccurrences(of: "{D}", with: duration.timeString)
+        }
         print(renderString, terminator: "")
         // Flush STDOUT
         fflush(stdout)
