@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "Spinner",
     products: [
-        .library(name: "Spinner", targets: ["Spinner"]),
+        .library(name: "Spinner", targets: ["Spinner"])
     ],
     dependencies: [
         .package(url: "https://github.com/dominicegginton/Nanoseconds", from: "1.0.0"),
@@ -14,5 +14,6 @@ let package = Package(
     targets: [
         .target(name: "Spinner", dependencies: ["Nanoseconds","Rainbow", "Signals"]),
         .testTarget(name: "SpinnerTests", dependencies: ["Spinner"]),
+        .target(name: "Example", dependencies: ["Spinner"])
     ]
 )
