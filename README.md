@@ -14,7 +14,7 @@
 
 ## Key Features
 
-- Over **60** beautiful built-in spinner animations
+- Over **80** beautiful built-in spinner animations
 - Easily create custom spinners animations and formats
 - Built-in completion functions (Success, Failure, Warning, Information)
 - Support for colors using [rainbow](https://github.com/onevcat/Rainbow)
