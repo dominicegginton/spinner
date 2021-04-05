@@ -111,6 +111,7 @@ mySpinner.succeed("Passed")
 The spinner object has a default format of `{S} {T}`, this renders the animated pattern before the text with a space between. By passing a string with a new format to the initializer or calling `.updateFormat(String)` you can use a custom format. Any String character can be used within the format string and will be permanently rendered, only the following will be replaced:
 - `{S}` Renders the animated pattern
 - `{T}` Renders the text
+- `{D}` Renders the duration of the spinner
 ``` swift
 let mySpinner = Spinner(.dots, "My Spinner", format : "{T} - {S}")
 ```
@@ -120,6 +121,13 @@ let mySpinner = Spinner(.dots, "My Spinner", format : "{T} - {S}")
 	<br>
 	<br>
 </p>
+
+#### Adding a Spinner Timer
+
+To add a timer to the spinner you need to add the duration string `{D}` to the spinner formation:
+```swift
+let mySpinner = Spinner(.dots, "My Spinner", format: "[{D}] {T} - {S}") // [8s] ⠧ My Spinner
+```
 
 #### Creating Custom Patterns
 We have **60** animated spinner patterns, however to create your own, define a new `SpinnerPattern(multiFrame: [String])`. The default speed for multi frame patterns is 0.08, to change this pass a double into the spinner initializer.
