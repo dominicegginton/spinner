@@ -17,6 +17,8 @@
 - Over **80** beautiful built-in spinner animations
 - Easily create custom spinners animations and formats
 - Built-in completion functions (Success, Failure, Warning, Information)
+- Time and display the Spinners duration easily
+- Custom spinner formats allow for endless customization
 - Support for colors using [rainbow](https://github.com/onevcat/Rainbow)
 
 ## Install 
