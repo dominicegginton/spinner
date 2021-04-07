@@ -1,5 +1,5 @@
 <h1 align='center'>Spinner</h1>
-<h4 align='center'>Powerful Swift CLI Spinners
+<h4 align='center'>Powerful Swift CLI Spinners<h4>
 
 <div align='center'>
 	<br>
