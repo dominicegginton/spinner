@@ -7,25 +7,26 @@ import Signals
 struct StdOutSpinnerUI: SpinnerUI {
     public func display(string: String) {
         // Reset cursor to start of line
-        print("\r", terminator: "")
+        Swift.print("\r", terminator: "")
         // Print the spinner frame and text
-        print(string, terminator: "")
+        Swift.print(string, terminator: "")
         // Flush STDOUT
         fflush(stdout)
     }
     
     public func hideCursor() {
-        print("\u{001B}[?25l", terminator: "")
+        Swift.print("\u{001B}[?25l", terminator: "")
         fflush(stdout)
     }
     
     public func unhideCursor() {
-        print("\u{001B}[?25h", terminator: "")
+        Swift.print("\u{001B}[?25h", terminator: "")
         fflush(stdout)
     }
   
-    public func print(_ str: String = "", terminator: String) {
-      Swift.print(str, terminator: terminator)
+    public func printString(_ str: String) {
+      Swift.print(str, terminator: "")
+      fflush(stdout)
     }
 }
 
@@ -127,7 +128,8 @@ public final class Spinner {
         }
         self.unhideCursor()
         self.renderSpinner()
-        self.ui.print("", terminator: terminator)
+//        print(terminator)
+        self.ui.printString(terminator)
     }
 
     /**
