@@ -4,7 +4,6 @@ import Dispatch
 import Rainbow
 import Signals
 
-
 struct StdOutSpinnerUI: SpinnerUI {
     public func display(string: String) {
         // Reset cursor to start of line
@@ -23,6 +22,10 @@ struct StdOutSpinnerUI: SpinnerUI {
     public func unhideCursor() {
         print("\u{001B}[?25h", terminator: "")
         fflush(stdout)
+    }
+  
+    public func print(_ str: String = "", terminator: String) {
+      Swift.print(str, terminator: terminator)
     }
 }
 
@@ -72,7 +75,7 @@ public final class Spinner {
         self.frameIndex = 0
         self.running = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
-    self.ui = ui ?? StdOutSpinnerUI()
+        self.ui = ui ?? StdOutSpinnerUI()
 
         Signals.trap(signal: .int) { _ in
             print("\u{001B}[?25h", terminator: "")
@@ -124,7 +127,7 @@ public final class Spinner {
         }
         self.unhideCursor()
         self.renderSpinner()
-        print(terminator: terminator)
+        self.ui.print("", terminator: terminator)
     }
 
     /**
