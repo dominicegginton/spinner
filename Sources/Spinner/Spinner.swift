@@ -4,6 +4,32 @@ import Dispatch
 import Rainbow
 import Signals
 
+struct StdOutSpinnerUI: SpinnerUI {
+    public func display(string: String) {
+        // Reset cursor to start of line
+        Swift.print("\r", terminator: "")
+        // Print the spinner frame and text
+        Swift.print(string, terminator: "")
+        // Flush STDOUT
+        fflush(stdout)
+    }
+    
+    public func hideCursor() {
+        Swift.print("\u{001B}[?25l", terminator: "")
+        fflush(stdout)
+    }
+    
+    public func unhideCursor() {
+        Swift.print("\u{001B}[?25h", terminator: "")
+        fflush(stdout)
+    }
+  
+    public func printString(_ str: String) {
+      Swift.print(str, terminator: "")
+      fflush(stdout)
+    }
+}
+
 public final class Spinner {
 
     /// Pattern holding frames to be animated    
@@ -28,6 +54,8 @@ public final class Spinner {
     var timestamp: Now?
     /// Format of the Spinner
     var format: String
+  
+    let ui: SpinnerUI
 
     /**
     Create new spinner 
@@ -38,7 +66,7 @@ public final class Spinner {
     - Parameter color: Color - The color the animated pattern will render as - default is white
     - Parameter: format: String - The format of the spinner - default is "{S} {T}"
     */
-    public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .default, format: String = "{S} {T}") {
+  public init(_ pattern: SpinnerPattern, _ text: String = "", speed: Double? = nil, color: Color = .default, format: String = "{S} {T}", ui: SpinnerUI? = nil) {
         self.pattern = pattern
         self.text = text
         self.speed = speed ?? pattern.defaultSpeed
@@ -48,6 +76,7 @@ public final class Spinner {
         self.frameIndex = 0
         self.running = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
+        self.ui = ui ?? StdOutSpinnerUI()
 
         Signals.trap(signal: .int) { _ in
             print("\u{001B}[?25h", terminator: "")
@@ -99,7 +128,8 @@ public final class Spinner {
         }
         self.unhideCursor()
         self.renderSpinner()
-        print(terminator: terminator)
+//        print(terminator)
+        self.ui.printString(terminator)
     }
 
     /**
@@ -234,9 +264,6 @@ public final class Spinner {
     }
 
     func renderSpinner() {
-
-        // Reset cursor to start of line
-        print("\r", terminator: "")
         // Print the spinner frame and text
         var  renderString = self.format.replacingOccurrences(of: "{S}", with: self.currentFrame()).replacingOccurrences(of: "{T}", with: self.text)
         // get duration
@@ -244,20 +271,16 @@ public final class Spinner {
             let duration = Now() - timestamp
             renderString = renderString.replacingOccurrences(of: "{D}", with: duration.timeString)
         }
-        print(renderString, terminator: "")
-        // Flush STDOUT
-        fflush(stdout)
+      ui.display(string: renderString)
 
     }
 
     func hideCursor() {
-        print("\u{001B}[?25l", terminator: "")
-        fflush(stdout)
+      ui.hideCursor()
     }
-    
+
     func unhideCursor() {
-        print("\u{001B}[?25h", terminator: "")
-        fflush(stdout)
+      ui.unhideCursor()
     }
 
 }
