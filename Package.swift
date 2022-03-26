@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.6
 import PackageDescription
 
 let package = Package(
@@ -12,8 +12,6 @@ let package = Package(
         .package(url: "https://github.com/IBM-Swift/BlueSignals.git", from: "1.0.0")
     ],
     targets: [
-        .target(name: "Spinner", dependencies: ["Nanoseconds","Rainbow", "Signals"]),
-        .testTarget(name: "SpinnerTests", dependencies: ["Spinner"]),
-        .target(name: "Example", dependencies: ["Spinner"])
+        .target(name: "Spinner", dependencies: ["Nanoseconds", "Rainbow", .product(name: "Signals", package: "BlueSignals")]),
     ]
 )

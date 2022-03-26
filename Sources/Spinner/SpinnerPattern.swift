@@ -80,16 +80,16 @@ public enum SpinnerPattern {
     case bluePulse
     case orangeBluePulse
     case aesthetic
-    case singleFrame(String)
-    case multiFrame([String])
+    case frame(String)
+    case frames([String])
 
-    public init(singleFrame: String) {
-        self = .singleFrame(singleFrame)
+    public init(frame: String) {
+        self = .frame(frame)
     }
 
-    public init(multiFrame: [String]) {
-        self = .multiFrame(multiFrame)
-    } 
+    public init(frames: [String]) {
+        self = .frames(frames)
+    }
 
     public var frames: [String] {
         switch self {
@@ -174,8 +174,8 @@ public enum SpinnerPattern {
             case .bluePulse: return ["🔹", "🔷", "🔵", "🔵", "🔷"]
             case .orangeBluePulse: return ["🔸", "🔶", "🟠", "🟠", "🔶", "🔹", "🔷", "🔵", "🔵", "🔷"]
             case .aesthetic: return ["▰▱▱▱▱▱▱", "▰▰▱▱▱▱▱", "▰▰▰▱▱▱▱", "▰▰▰▰▱▱▱", "▰▰▰▰▰▱▱", "▰▰▰▰▰▰▱", "▰▰▰▰▰▰▰", "▰▱▱▱▱▱▱"]
-            case .singleFrame(let frame): return [frame]
-            case .multiFrame(let frames): return frames
+            case .frame(let frame): return [frame]
+            case .frames(let frames): return frames
         }
     }
 
@@ -262,8 +262,8 @@ public enum SpinnerPattern {
             case .bluePulse: return 0.1
             case .orangeBluePulse: return 0.1
             case .aesthetic: return 0.8
-            case .singleFrame(_): return 1
-            case .multiFrame(_): return 0.08
+            case .frame(_): return 1
+            case .frames(_): return 0.08
         }
     }
 }
