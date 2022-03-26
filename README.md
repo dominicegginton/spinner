@@ -1,5 +1,7 @@
 # Spinner
 
+![carbon (3)](https://user-images.githubusercontent.com/28626241/160242315-a4f8a928-1f7d-45f0-937d-0e33f549735f.svg)
+
 - Over **80** built-in spinner patterns
 - Create custom spinners patterns
 - Customise the spinners format
