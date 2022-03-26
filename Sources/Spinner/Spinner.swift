@@ -31,7 +31,7 @@ struct DefaultSpinnerSignal: SpinnerSignal {
 }
 
 public final class Spinner {
-    var pattern: SpinnerPattern {
+    var animation: SpinnerAnimation {
         didSet {
             self.frameIndex = 0
         }
@@ -47,11 +47,21 @@ public final class Spinner {
     var queue: DispatchQueue
     var timestamp: Now?
 
-    public init(_ pattern: SpinnerPattern, _ message: String = "", color: Color = .default, speed: Double? = nil, format: String = "{S} {T}", stream: SpinnerStream? = nil, signal: SpinnerSignal? = nil) {
-        self.pattern = pattern
+    /**
+    Initialize spinner
+    - Parameter animation: spinner animation
+    - Parameter message: message to render
+    - Parameter color: spinner animation color
+    - Parameter speed: speed of spinner animation
+    - Parameter format: spinner format
+    - Parameter stream: output steam for spinner
+    - Parameter signal: signal trap implementation for spinner
+    */
+    public init(_ animation: SpinnerAnimation, _ message: String = "", color: Color = .default, speed: Double? = nil, format: String = "{S} {T}", stream: SpinnerStream? = nil, signal: SpinnerSignal? = nil) {
+        self.animation = animation
         self.message = message
         self.color = color
-        self.speed = speed ?? pattern.defaultSpeed
+        self.speed = speed ?? animation.defaultSpeed
         self.format = format.uppercased()
         self.stream = stream ?? StdOutSpinnerStream()
 
@@ -66,6 +76,9 @@ public final class Spinner {
         }
     }
 
+    /**
+    Start the spinner
+    */
     public func start() {
         self.stream.hideCursor()
         self.status = true
@@ -79,6 +92,13 @@ public final class Spinner {
         }
     }
 
+    /**
+    Stop the spinner
+    - Parameter frame: final frame to render before stopping
+    - Parameter message: final message to render before stopping
+    - Parameter color: final frame color
+    - Parameter terminator: the string to print after all items have been printed
+    */
     public func stop(frame: String? = nil, message: String? = nil, color: Color? = nil, terminator: String = "\n") {
         self.status = false
         if let message = message {
@@ -87,57 +107,96 @@ public final class Spinner {
         if let color = color {
             self.color(color)
         }
-        var pattern: SpinnerPattern?
+        var animation: SpinnerAnimation?
         if let frame = frame {
-            pattern = SpinnerPattern(frame: frame)
+            animation = SpinnerAnimation(frame: frame)
         }
-        if let pattern = pattern {
-            self.message += Array(repeating: " ", count: self.padding(pattern))
-            self.pattern = pattern
+        if let animation = animation {
+            self.message += Array(repeating: " ", count: self.padding(animation))
+            self.animation = animation
         }
         self.render()
         self.stream.write(string: "", terminator: terminator)
         self.stream.showCursor()
     }
 
-    public func clear() {
-        self.stop(frame: "", message: "", terminator: "\r")
+    /**
+    Update spinner animation
+    - Parameter animation: spinner animation
+    */
+    public func animation(_ animation: SpinnerAnimation) {
+        self.format += Array(repeating: " ", count: self.padding(animation))
+        self.animation = animation
     }
 
-    public func pattern(_ pattern: SpinnerPattern) {
-        self.format += Array(repeating: " ", count: self.padding(pattern))
-        self.pattern = pattern
-    }
-
+    /**
+    Update spinner message
+    - Parameter message: message to render
+    */
     public func message(_ message: String) {
         self.format += Array(repeating: " ", count: self.padding(message))
         self.message = message
     }
 
+    /**
+    Update spinner animation speed
+    - Parameter speed: speed of spinner animation
+    */
     public func speed(_ speed: Double) {
         self.speed = speed
-    } 
+    }
 
+    /**
+    Update spinner animation color
+    - Parameter color: spinner animation color
+    */
     public func color(_ color: Color) {
         self.color = color
     }
 
+    /**
+    Update spinner format
+    - Parameter format: spinner format
+    */
     public func format(_ format: String) {
         self.format = format
     }
 
+    /**
+    Stop and clear the spinner
+    */
+    public func clear() {
+        self.stop(frame: "", message: "", terminator: "\r")
+    }
+
+    /**
+    Stop and render a green tick for the final animation frame
+    - Parameter message: spinner message to render
+    */
     public func success(_ message: String? = nil) {
         self.stop(frame: "✔", message: message, color: .green)
     }
 
+    /**
+    Stop and render a red cross for the final animation frame
+    - Parameter message: spinner message to render
+    */
     public func error(_ message: String? = nil) {
         self.stop(frame: "✖", message: message, color: .red)
     }
 
+    /**
+    Stop and render a yellow warning symbol for the final animation frame
+    - Parameter message: spinner message to render
+    */
     public func warning(_ message: String? = nil) {
         self.stop(frame: "⚠", message: message, color: .yellow)
     }
 
+    /**
+    Stop and render a blue information sign  for the final animation frame
+    - Parameter message: spinner message to render
+    */
     public func info(_ message: String? = nil) {
         self.stop(frame: "ℹ", message: message, color: .blue)
     }
@@ -153,9 +212,9 @@ public final class Spinner {
         }
     }
 
-    func padding(_ pattern: SpinnerPattern) -> Int {
-        let new: Int = Rainbow.extractModes(for: pattern.frames[0]).text.count
-        let old: Int = Rainbow.extractModes(for: self.pattern.frames[0]).text.count
+    func padding(_ animation: SpinnerAnimation) -> Int {
+        let new: Int = Rainbow.extractModes(for: animation.frames[0]).text.count
+        let old: Int = Rainbow.extractModes(for: self.animation.frames[0]).text.count
         let diff: Int = old - new
         if diff > 0 {
             return diff
@@ -165,8 +224,8 @@ public final class Spinner {
     }
 
     func frame() -> String {
-        let frame = self.pattern.frames[self.frameIndex].applyingCodes(self.color)
-        self.frameIndex = (self.frameIndex + 1) % self.pattern.frames.count
+        let frame = self.animation.frames[self.frameIndex].applyingCodes(self.color)
+        self.frameIndex = (self.frameIndex + 1) % self.animation.frames.count
         return frame
     }
 
