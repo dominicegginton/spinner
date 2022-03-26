@@ -23,7 +23,7 @@ Install via the [**Swift Package Manger**](https://swift.org/package-manager/) b
 import Foundation
 import Spinner
 
-let spinner = Spinner(.dots, "My Spinner")
+let spinner = Spinner(.dots, "foo bar baz")
 spinner.start()
 sleep(2) // do work
 spinner.stop()
@@ -186,7 +186,7 @@ let spinner = Spinner(.dots, "foo bar baz", format : "{T} - {S}") // foo bar baz
 Use a custom `Spinner.format` string that includes `{D}` in order to render the duration of time since starting the spinner animation
 
 ```swift
-let mySpinner = Spinner(.dots, "My Spinner", format: "{D} {T} - {S}") // 8s ⠧ My Spinner
+let spinner = Spinner(.dots, "foo bar baz", format: "{D} {T} - {S}") // 8s ⠧ foo bar baz
 ```
 
 #### Creating Custom Patterns
@@ -223,7 +223,7 @@ struct SwiftCLISpinnerStream: SpinnerStream {
     }
 }
 
-let spinner = Spinner(.dots, "My Spinner", stream: SwiftCLISpinnerStream(stdout: stdout))
+let spinner = Spinner(.dots, "foo bar baz", stream: SwiftCLISpinnerStream(stdout: stdout))
 ```
 
 #### Caveat
@@ -240,5 +240,5 @@ struct CustomSpinnerSignal: SpinnerSignal {
     }
 }
 
-let spinner = Spinner(.dots, "My Spinner", signal: CustomSpinnerSignal())
+let spinner = Spinner(.dots, "foo bar baz", signal: CustomSpinnerSignal())
 ```
