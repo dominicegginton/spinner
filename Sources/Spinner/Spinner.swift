@@ -6,7 +6,7 @@ import Signals
 
 struct StdOutSpinnerStream: SpinnerStream {
     func write(string: String, terminator: String) {
-        Swift.print(string, terminator: terminator)
+        print(string, terminator: terminator)
         fflush(stdout)
     }
 
@@ -18,6 +18,15 @@ struct StdOutSpinnerStream: SpinnerStream {
     func showCursor() {
         print("\u{001B}[?25h", terminator: "")
         fflush(stdout)
+    }
+}
+
+struct DefaultSpinnerSignal: SpinnerSignal {
+    func trap() {
+        Signals.trap(signal: .int) { _ in
+            print("\u{001B}[?25h", terminator: "")
+            exit(0)
+        }
     }
 }
 
@@ -38,7 +47,7 @@ public final class Spinner {
     var queue: DispatchQueue
     var timestamp: Now?
 
-    public init(_ pattern: SpinnerPattern, _ message: String = "", color: Color = .default, speed: Double? = nil, format: String = "{S} {T}", stream: SpinnerStream? = nil) {
+    public init(_ pattern: SpinnerPattern, _ message: String = "", color: Color = .default, speed: Double? = nil, format: String = "{S} {T}", stream: SpinnerStream? = nil, signal: SpinnerSignal? = nil) {
         self.pattern = pattern
         self.message = message
         self.color = color
@@ -49,10 +58,11 @@ public final class Spinner {
         self.frameIndex = 0
         self.status = false
         self.queue = DispatchQueue(label: "io.Swift.Spinner")
-
-        Signals.trap(signal: .int) { _ in
-            print("\u{001B}[?25h", terminator: "")
-            exit(0)
+        if let signal = signal {
+            signal.trap()
+        }
+        else {
+            DefaultSpinnerSignal().trap()
         }
     }
 
