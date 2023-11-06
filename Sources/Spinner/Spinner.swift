@@ -201,9 +201,16 @@ public final class Spinner {
         self.stop(frame: "ℹ", message: message, color: .blue)
     }
 
+    func entryLength(entry: Rainbow.Entry) -> Int {
+      if let segment = entry.segments.first {
+        return segment.text.count
+      }
+      return 0
+    }
+
     func padding(_ message: String) -> Int {
-        let new = Rainbow.extractModes(for: message).text.count
-        let old = Rainbow.extractModes(for: self.message).text.count
+        let new = entryLength(entry: Rainbow.extractEntry(for: message))
+        let old = entryLength(entry: Rainbow.extractEntry(for: self.message))
         let diff: Int = old - new
         if diff > 0 {
             return diff
@@ -213,8 +220,8 @@ public final class Spinner {
     }
 
     func padding(_ animation: SpinnerAnimation) -> Int {
-        let new: Int = Rainbow.extractModes(for: animation.frames[0]).text.count
-        let old: Int = Rainbow.extractModes(for: self.animation.frames[0]).text.count
+        let new = entryLength(entry: Rainbow.extractEntry(for: animation.frames[0]))
+        let old = entryLength(entry: Rainbow.extractEntry(for: self.animation.frames[0]))
         let diff: Int = old - new
         if diff > 0 {
             return diff
