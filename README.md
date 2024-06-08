@@ -35,7 +35,7 @@ spinner.stop()
 
 #### Creating a spinner
 
-Create a **spinner** by initializing an instance of the `Spinner` class. 
+Create a **spinner** by initializing an instance of the `Spinner` class.
 
 ``` swift
 let spinner = Spinner(.dots, "foo bar baz")
@@ -112,19 +112,19 @@ Stop and render a green tick for the final pattern frame
 - Parameter message: spinner message to render
 */
 public func success(_ message: String? = nil)
-    
+
 /**
 Stop and render a red cross for the final pattern frame
 - Parameter message: spinner message to render
 */
 public func error(_ message: String? = nil)
-    
+
 /**
 Stop and render a yellow warning symbol for the final pattern frame
 - Parameter message: spinner message to render
 */
 public func warning(_ message: String? = nil)
-    
+
 /**
 Stop and render a blue information sign  for the final pattern frame
 - Parameter message: spinner message to render
@@ -142,25 +142,25 @@ Update spinner pattern
 - Parameter pattern: spinner pattern
 */
 public func pattern(_ pattern: SpinnerPattern)
-    
+
 /**
 Update spinner message
 - Parameter message: message to render
 */
 public func message(_ message: String)
-    
+
 /**
 Update spinner animation speed
 - Parameter speed: speed of spinner animation
 */
 public func speed(_ speed: Double)
-    
+
 /**
 Update spinner pattern color
 - Parameter color: spinner pattern color
 */
 public func color(_ color: Color)
-    
+
 /**
 Update spinner format
 - Parameter format: spinner format
@@ -207,7 +207,7 @@ let spinner = Spinner(pattern, "foo bar baz", speed: 0.3) // 1 foo bar baz
 ``` swift
 struct SwiftCLISpinnerStream: SpinnerStream {
     private let _stdout: WritableStream
-  
+
     init(stdout: WritableStream) {
         _stdout = stdout
     }
