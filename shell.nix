@@ -1,11 +1,8 @@
-{
-  pkgs,
-  oldPkgs,
-}:
+{pkgs}:
 pkgs.mkShell {
-  nativeBuildInputs = [
-    oldPkgs.clang
-    oldPkgs.swift
+  buildInputs = with pkgs; [
+    clang
+    swift
   ];
 
   shellHook = ''

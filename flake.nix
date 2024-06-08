@@ -18,7 +18,7 @@
       }) {inherit system;};
     in {
       formatter = pkgs.alejandra;
-      packages.default = import ./default.nix {inherit pkgs oldPkgs;};
-      devShells.default = import ./shell.nix {inherit pkgs oldPkgs;};
+      packages.default = import ./default.nix {pkgs = oldPkgs;};
+      devShells.default = import ./shell.nix {pkgs = oldPkgs;};
     });
 }
