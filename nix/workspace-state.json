@@ -1,0 +1,59 @@
+{
+  "object": {
+    "artifacts": [],
+    "dependencies": [
+      {
+        "basedOn": null,
+        "packageRef": {
+          "identity": "bluesignals",
+          "kind": "remoteSourceControl",
+          "location": "https://github.com/IBM-Swift/BlueSignals.git",
+          "name": "Signals"
+        },
+        "state": {
+          "checkoutState": {
+            "revision": "1f6c49e186c8a4eeef87ba14f2f97b8646559d13",
+            "version": "1.0.200"
+          },
+          "name": "sourceControlCheckout"
+        },
+        "subpath": "BlueSignals"
+      },
+      {
+        "basedOn": null,
+        "packageRef": {
+          "identity": "nanoseconds",
+          "kind": "remoteSourceControl",
+          "location": "https://github.com/dominicegginton/Nanoseconds",
+          "name": "Nanoseconds"
+        },
+        "state": {
+          "checkoutState": {
+            "revision": "a279f375fd88d91102d7567d7f93cbbfb85f3a53",
+            "version": "1.1.3"
+          },
+          "name": "sourceControlCheckout"
+        },
+        "subpath": "Nanoseconds"
+      },
+      {
+        "basedOn": null,
+        "packageRef": {
+          "identity": "rainbow",
+          "kind": "remoteSourceControl",
+          "location": "https://github.com/onevcat/Rainbow",
+          "name": "Rainbow"
+        },
+        "state": {
+          "checkoutState": {
+            "revision": "e0dada9cd44e3fa7ec3b867e49a8ddbf543e3df3",
+            "version": "4.0.1"
+          },
+          "name": "sourceControlCheckout"
+        },
+        "subpath": "Rainbow"
+      }
+    ]
+  },
+  "version": 6
+}

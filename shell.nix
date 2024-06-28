@@ -1,11 +1,7 @@
-{pkgs}:
-pkgs.mkShell {
-  buildInputs = with pkgs; [
-    clang
-    swift
-  ];
+{ pkgs, swift }:
 
-  shellHook = ''
-    CC=clang
-  '';
+pkgs.mkShell.override { inherit (swift) stdenv; }
+
+{
+  buildInputs = with pkgs; [ swift swiftPackages.Foundation swiftpm swiftpm2nix ];
 }
