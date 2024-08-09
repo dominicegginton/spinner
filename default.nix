@@ -6,9 +6,9 @@ let
   generated = swiftpm2nix.helpers ./nix;
 in
 
-swift.stdenv.mkDerivation rec {
-  pname = "spinner";
-  version = "0.0.0";
+swift.stdenv.mkDerivation {
+  pname = "Example";
+  version = "2.1.0";
   src = cleanSource ./.;
   nativeBuildInputs = [ swift swiftpm ];
 
@@ -16,7 +16,7 @@ swift.stdenv.mkDerivation rec {
 
   installPhase = ''
     binPath="$(swiftpmBinPath)"
-    mkdir -p $out/lib
-    cp $binPath/* $out/lib
+    mkdir -p $out/bin
+    cp $binPath/Example $out/bin/
   '';
 }
