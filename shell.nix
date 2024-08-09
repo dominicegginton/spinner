@@ -1,7 +1,11 @@
 { pkgs, swift }:
 
+let
+  spinner = pkgs.callPackage ./default.nix {};
+in
+
 pkgs.mkShell.override { inherit (swift) stdenv; }
 
 {
-  buildInputs = with pkgs; [ swift swiftPackages.Foundation swiftpm swiftpm2nix ];
+  inputsFrom = [spinner];
 }
