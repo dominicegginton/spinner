@@ -13,5 +13,6 @@ let package = Package(
     ],
     targets: [
         .target(name: "Spinner", dependencies: ["Nanoseconds", "Rainbow", .product(name: "Signals", package: "BlueSignals")]),
+        .target(name: "DebugDuration", dependencies: ["Spinner"]),
     ]
 )
