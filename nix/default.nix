@@ -2,8 +2,8 @@
 {
   workspaceStateFile = ./workspace-state.json;
   hashes = {
-    "BlueSignals" = "1wb34rrz98b6ssjd1al4s0x5bnghayfrpb8qfacxppck6bynwsjm";
-    "Nanoseconds" = "05zls96rgg9hx29f5kfh4nzlzg1xglnmnzcj5l6njx8swdd444dh";
-    "Rainbow" = "0qq0nfbxr7qvb8z07ac1rd6c844pmc3sk707pw8hdl2pc707yryf";
+    "BlueSignals" = "sha256-VWpu/TKT3duZchitm51X8NlVOtCEqtCk1mah9HMmY/E=";
+    "Nanoseconds" = "sha256-sBFCWuMadWkNLZJ9Wy19PbxPvyXQzeKS6DC9l03S9Bc=";
+    "Rainbow" = "sha256-g0kwXVfVaKaux8VwKhPQgoFMDJefjGrapvvq3cnjjo0=";
   };
 }

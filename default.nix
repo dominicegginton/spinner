@@ -10,7 +10,7 @@ swift.stdenv.mkDerivation {
   pname = "Example";
   version = "2.1.0";
   src = cleanSource ./.;
-  nativeBuildInputs = [ swift swiftpm ];
+  nativeBuildInputs = [ swift swiftpm swiftpm2nix ];
 
   configurePhase = generated.configure;
 
